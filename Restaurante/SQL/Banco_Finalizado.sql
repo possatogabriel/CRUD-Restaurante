@@ -4,7 +4,7 @@ CREATE DATABASE Restaurante;
 
 USE Restaurante; 
 
--- Tabela de 
+-- Tabela de Clientes
 CREATE TABLE IF NOT EXISTS Clientes( 
 	ID_cliente int(8) AUTO_INCREMENT, 
 	CPF varchar(11) not null, 
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Clientes(
 	PRIMARY KEY (ID_cliente) 
 );
 
--- Tabela de Clientes 
+-- Tabela de Filiais
 CREATE TABLE IF NOT EXISTS Filiais( 
 	ID_filial int(3) AUTO_INCREMENT, 
 	Endereco varchar(255), 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS Funcionarios(
 	Telefone varchar(12), 
 	ID_filial int(3),
 	Cargo varchar(255),
-	-- Data_contatacao datetime,
+	Data_contatacao datetime,
 	PRIMARY KEY (ID_func),
 	FOREIGN KEY (ID_filial) REFERENCES Filiais(ID_filial)
 ); 

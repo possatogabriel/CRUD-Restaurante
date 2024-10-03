@@ -26,32 +26,47 @@ public class Pedidos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtxprato = new javax.swing.JTextPane();
-        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jtxvalor = new javax.swing.JTextPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jtxdescrição = new javax.swing.JTextPane();
+        jtx_idbebida_pedido = new javax.swing.JTextPane();
+        jLabel1 = new javax.swing.JLabel();
         jbtnlimpar = new javax.swing.JButton();
         jbtnpronto = new javax.swing.JButton();
-        jTextpratos = new javax.swing.JTextField();
+        Voltar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Voltar3 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtx_idcliente_pedido = new javax.swing.JTextPane();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtx_idprato_pedido = new javax.swing.JTextPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jtxendereco_pedido = new javax.swing.JTextPane();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jtxvalor_pedido = new javax.swing.JFormattedTextField();
+        jtxdata_pedido = new javax.swing.JFormattedTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jtxpagamento_pedido = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel4.setText("Valor:");
+        jTextField2.setEditable(false);
+        jTextField2.setBackground(new java.awt.Color(135, 27, 34));
+        jTextField2.setFont(new java.awt.Font("Yu Gothic Light", 1, 14)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(240, 240, 240));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setText("Pedidos");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
-        jScrollPane1.setViewportView(jtxprato);
+        jScrollPane3.setViewportView(jtx_idbebida_pedido);
 
-        jLabel1.setText("Nome do prato:");
-
-        jScrollPane3.setViewportView(jtxvalor);
-
-        jScrollPane2.setViewportView(jtxdescrição);
+        jLabel1.setText("ID do Cliente:");
 
         jbtnlimpar.setText("Limpar");
         jbtnlimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,59 +82,90 @@ public class Pedidos extends javax.swing.JFrame {
             }
         });
 
-        jTextpratos.setEditable(false);
-        jTextpratos.setBackground(new java.awt.Color(135, 27, 34));
-        jTextpratos.setFont(new java.awt.Font("Yu Gothic Light", 1, 14)); // NOI18N
-        jTextpratos.setForeground(new java.awt.Color(240, 240, 240));
-        jTextpratos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextpratos.setText("Pratos");
-        jTextpratos.addActionListener(new java.awt.event.ActionListener() {
+        Voltar.setText("Voltar ");
+        Voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextpratosActionPerformed(evt);
+                VoltarActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Descrição:");
+        jLabel5.setText("Data do pedido:");
 
-        Voltar3.setText("Voltar ");
-        Voltar3.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setText("ID do Prato:");
+
+        jLabel4.setText("ID da Bebida: ");
+
+        jScrollPane1.setViewportView(jtx_idcliente_pedido);
+
+        jLabel6.setText("Valor:");
+
+        jScrollPane2.setViewportView(jtx_idprato_pedido);
+
+        jScrollPane5.setViewportView(jtxendereco_pedido);
+
+        jLabel7.setText("Tipo de Pagamento: ");
+
+        jLabel8.setText("Endereço:");
+
+        try {
+            jtxvalor_pedido.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##,##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jtxvalor_pedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Voltar3ActionPerformed(evt);
+                jtxvalor_pedidoActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        try {
+            jtxdata_pedido.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/## ##:##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jtxdata_pedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxdata_pedidoActionPerformed(evt);
+            }
+        });
+
+        jScrollPane4.setViewportView(jtxpagamento_pedido);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTextField2)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                        .addComponent(jtxvalor_pedido)
+                        .addComponent(jLabel6)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel5)
+                        .addComponent(jtxdata_pedido))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jbtnlimpar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtnpronto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Voltar3)))
+                        .addComponent(Voltar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTextpratos, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTextpratos, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -133,32 +179,27 @@ public class Pedidos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtxvalor_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtxdata_pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnpronto)
                     .addComponent(jbtnlimpar)
-                    .addComponent(Voltar3))
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 322, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 305, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(Voltar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -166,26 +207,42 @@ public class Pedidos extends javax.swing.JFrame {
 
     private void jbtnlimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnlimparActionPerformed
         // TODO add your handling code here:
-        
-        jtxprato.setText("");
-        jtxvalor.setText("");
-        jtxdescrição.setText("");
+
+        jtx_idbebida_pedido.setText("");
+        jtx_idcliente_pedido.setText("");
+        jtx_idprato_pedido.setText("");
+        jtxdata_pedido.setText("");
+        jtxendereco_pedido.setText("");
+        jtxpagamento_pedido.setText("");
+        jtxvalor_pedido.setText("");
     }//GEN-LAST:event_jbtnlimparActionPerformed
 
     private void jbtnprontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnprontoActionPerformed
         // TODO add your handling code here:
+        String pedido = jtx_id_pedido_entrega.getText();
+        String endereco = jtx_idprato_pedido.getText();
+        Connection conn = null;
+        Statement stmt = null;
     }//GEN-LAST:event_jbtnprontoActionPerformed
 
-    private void jTextpratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextpratosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextpratosActionPerformed
-
-    private void Voltar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Voltar3ActionPerformed
+    private void VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoltarActionPerformed
         // TODO add your handling code here:
 
         dispose();
         new Login().setVisible(true);
-    }//GEN-LAST:event_Voltar3ActionPerformed
+    }//GEN-LAST:event_VoltarActionPerformed
+
+    private void jtxvalor_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxvalor_pedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxvalor_pedidoActionPerformed
+
+    private void jtxdata_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxdata_pedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxdata_pedidoActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,19 +280,28 @@ public class Pedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Voltar3;
+    private javax.swing.JButton Voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextpratos;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton jbtnlimpar;
     private javax.swing.JButton jbtnpronto;
-    private javax.swing.JTextPane jtxdescrição;
-    private javax.swing.JTextPane jtxprato;
-    private javax.swing.JTextPane jtxvalor;
+    private javax.swing.JTextPane jtx_idbebida_pedido;
+    private javax.swing.JTextPane jtx_idcliente_pedido;
+    private javax.swing.JTextPane jtx_idprato_pedido;
+    private javax.swing.JFormattedTextField jtxdata_pedido;
+    private javax.swing.JTextPane jtxendereco_pedido;
+    private javax.swing.JTextPane jtxpagamento_pedido;
+    private javax.swing.JFormattedTextField jtxvalor_pedido;
     // End of variables declaration//GEN-END:variables
 }

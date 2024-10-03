@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 public class Connector{
     static String url = "jdbc:mysql://localhost:3306/Restaurante";
     static String user = "root";
-    static String pwd = "1234";
+    static String pwd = "";
 
     static Connection conn = null;
 
