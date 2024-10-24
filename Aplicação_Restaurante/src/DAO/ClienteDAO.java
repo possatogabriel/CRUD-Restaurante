@@ -42,7 +42,7 @@ public class ClienteDAO {
         }
     }
     
-    public ArrayList<ClienteDTO> pesquisarCliente() {
+    public ArrayList<ClienteDTO> listarCliente() {
         String sql = "SELECT * FROM Clientes";
         
         conn = new ConexãoDAO().connectorDB();
@@ -68,7 +68,7 @@ public class ClienteDAO {
         } 
         
         catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro no arquivo 'ClienteDAO' - 'pesquisarCliente': " + erro);
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'ClienteDAO' - 'listarCliente': " + erro);
         }
         
         return lista;

@@ -2,7 +2,6 @@ package VIEW;
 
 import DAO.ClienteDAO;
 import DTO.ClienteDTO;
-import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -164,7 +163,7 @@ public class tableClienteVIEW extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) tabelaClientes.getModel();
             model.setNumRows(0);
             
-            ArrayList<ClienteDTO> lista = objClienteDAO.pesquisarCliente();
+            ArrayList<ClienteDTO> lista = objClienteDAO.listarCliente();
             
             for (int num = 0; num < lista.size(); num ++) {
                 model.addRow(new Object [] {
@@ -184,5 +183,4 @@ public class tableClienteVIEW extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableClienteVIEW': " + erro);
         }
     }
-
 }
