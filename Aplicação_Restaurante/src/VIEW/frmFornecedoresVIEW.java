@@ -45,6 +45,7 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
         CNPJ = new javax.swing.JLabel();
         jtxMaterial_Fornecedores = new javax.swing.JTextField();
         jtxValor_Fornecedores = new javax.swing.JFormattedTextField();
+        btnVerTabela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,6 +146,15 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btnVerTabela.setBackground(new java.awt.Color(0, 153, 153));
+        btnVerTabela.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 14)); // NOI18N
+        btnVerTabela.setText("VER TABELA");
+        btnVerTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,19 +174,21 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
                     .addComponent(jtxValor_Fornecedores)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEnviar_Fornecedores)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnVoltar))
                             .addComponent(NOME)
                             .addComponent(CNPJ)
                             .addComponent(MATERIAL)
                             .addComponent(EMAIL)
                             .addComponent(TELEFONE)
                             .addComponent(VALOR))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 247, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnEnviar_Fornecedores)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerTabela)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -211,7 +223,8 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEnviar_Fornecedores)
                     .addComponent(btnLimpar)
-                    .addComponent(btnVoltar))
+                    .addComponent(btnVoltar)
+                    .addComponent(btnVerTabela))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
@@ -268,6 +281,11 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
         objFornecedoresDAO.cadastrarFornecedor(objFornecedorDTO);
     }//GEN-LAST:event_btnEnviar_FornecedoresActionPerformed
 
+    private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
+
+        new tableFornecedoresVIEW().setVisible(true);
+    }//GEN-LAST:event_btnVerTabelaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -313,6 +331,7 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel VALOR;
     private javax.swing.JButton btnEnviar_Fornecedores;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnVerTabela;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField jtxCNPJ_Fornecedores;
     private javax.swing.JTextField jtxEmail_Fornecedores;

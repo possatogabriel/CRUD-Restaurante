@@ -35,6 +35,7 @@ public class frmEstoqueVIEW extends javax.swing.JFrame {
         btnEnviar_Estoque = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         jtxIDFilial_Estoque = new javax.swing.JTextField();
+        btnVerTabela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,6 +106,15 @@ public class frmEstoqueVIEW extends javax.swing.JFrame {
             }
         });
 
+        btnVerTabela.setBackground(new java.awt.Color(0, 153, 153));
+        btnVerTabela.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 14)); // NOI18N
+        btnVerTabela.setText("VER TABELA");
+        btnVerTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,22 +125,24 @@ public class frmEstoqueVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEnviar_Estoque)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnVoltar))
                             .addComponent(FORNECEDOR)
                             .addComponent(QUANTIDADE)
                             .addComponent(FILIAL))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 262, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtxIDFornecedor_Estoque, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
-                            .addComponent(jtxIDFilial_Estoque, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
-                            .addComponent(jtxQntd_Estoque, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))))
+                            .addComponent(jtxIDFornecedor_Estoque, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                            .addComponent(jtxIDFilial_Estoque, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                            .addComponent(jtxQntd_Estoque, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnEnviar_Estoque)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerTabela)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -153,8 +165,9 @@ public class frmEstoqueVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEnviar_Estoque)
                     .addComponent(btnLimpar)
-                    .addComponent(btnVoltar))
-                .addGap(0, 13, Short.MAX_VALUE))
+                    .addComponent(btnVoltar)
+                    .addComponent(btnVerTabela))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,6 +214,11 @@ public class frmEstoqueVIEW extends javax.swing.JFrame {
         objEstoqueDAO.cadastrarEstoque(objEstoqueDTO);  
     }//GEN-LAST:event_btnEnviar_EstoqueActionPerformed
 
+    private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
+
+        new tableEstoqueVIEW().setVisible(true);
+    }//GEN-LAST:event_btnVerTabelaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -243,6 +261,7 @@ public class frmEstoqueVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel TÍTULO;
     private javax.swing.JButton btnEnviar_Estoque;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnVerTabela;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField jtxIDFilial_Estoque;
     private javax.swing.JTextField jtxIDFornecedor_Estoque;

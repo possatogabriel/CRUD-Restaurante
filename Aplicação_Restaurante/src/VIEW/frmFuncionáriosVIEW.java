@@ -55,6 +55,7 @@ public class frmFuncionáriosVIEW extends javax.swing.JFrame {
         jtxCargo_Funcionários = new javax.swing.JTextField();
         radioMasculino = new javax.swing.JRadioButton();
         radioFeminino = new javax.swing.JRadioButton();
+        btnVerTabela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,6 +203,15 @@ public class frmFuncionáriosVIEW extends javax.swing.JFrame {
         jtxSexo_Funcionários.add(radioFeminino);
         radioFeminino.setText("F");
 
+        btnVerTabela.setBackground(new java.awt.Color(0, 153, 153));
+        btnVerTabela.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 14)); // NOI18N
+        btnVerTabela.setText("VER TABELA");
+        btnVerTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,12 +244,6 @@ public class frmFuncionáriosVIEW extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(NOME)
                                     .addComponent(CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnEnviar_Funcionários)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnLimpar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnVoltar))
                                     .addComponent(CADASTRO)
                                     .addComponent(SEXO)
                                     .addComponent(IDADE)
@@ -248,7 +252,15 @@ public class frmFuncionáriosVIEW extends javax.swing.JFrame {
                                     .addComponent(TELEFONE)
                                     .addComponent(CONTRATAÇÃO)
                                     .addComponent(CADASTRO1))
-                                .addGap(0, 116, Short.MAX_VALUE)))
+                                .addGap(0, 231, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnEnviar_Funcionários)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnVerTabela)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnLimpar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnVoltar)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -301,7 +313,8 @@ public class frmFuncionáriosVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEnviar_Funcionários)
                     .addComponent(btnLimpar)
-                    .addComponent(btnVoltar))
+                    .addComponent(btnVoltar)
+                    .addComponent(btnVerTabela))
                 .addContainerGap())
         );
 
@@ -394,6 +407,11 @@ public class frmFuncionáriosVIEW extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_radioMasculinoActionPerformed
 
+    private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
+
+        new tableFuncionáriosVIEW().setVisible(true);
+    }//GEN-LAST:event_btnVerTabelaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -443,6 +461,7 @@ public class frmFuncionáriosVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel TÍTULO;
     private javax.swing.JButton btnEnviar_Funcionários;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnVerTabela;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField jtxCPF_Funcionários;
     private javax.swing.JTextField jtxCargo_Funcionários;

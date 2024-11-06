@@ -4,6 +4,12 @@
  */
 package VIEW;
 
+import DAO.FuncionáriosDAO;
+import DTO.FuncionáriosDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author CAMARGO
@@ -105,7 +111,7 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresFuncionários();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +160,35 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaFuncionários;
     // End of variables declaration//GEN-END:variables
+    
+    private void listarValoresFuncionários(){
+        try {
+            FuncionáriosDAO objFuncionáriosDAO = new FuncionáriosDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaFuncionários.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<FuncionáriosDTO> lista = objFuncionáriosDAO.listarFuncionários();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getCPF_FuncionáriosDTO(),
+                    lista.get(num).getNome_FuncionáriosDTO(),
+                    lista.get(num).getSexo_FuncionáriosDTO(),
+                    lista.get(num).getIdade_FuncionáriosDTO(),
+                    lista.get(num).getEndereço_FuncionáriosDTO(),
+                    lista.get(num).getEmail_FuncionáriosDTO(),
+                    lista.get(num).getTelefone_FuncionáriosDTO(),
+                    lista.get(num).getIDFilial_FuncionáriosDTO(),
+                    lista.get(num).getCargo_FuncionáriosDTO(),
+                    lista.get(num).getDataContratação_FuncionáriosDTO()
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableFuncionáriosVIEW': " + erro);
+        }
+    }
+
 }

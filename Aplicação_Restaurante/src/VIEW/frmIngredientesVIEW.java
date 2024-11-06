@@ -41,6 +41,7 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
         MEDIDA = new javax.swing.JLabel();
         jtxUnidadeMedida_Ingredientes = new javax.swing.JTextField();
         jtxIDPrato_Ingredientes = new javax.swing.JTextField();
+        btnVerTabela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,6 +123,15 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
             }
         });
 
+        btnVerTabela.setBackground(new java.awt.Color(0, 153, 153));
+        btnVerTabela.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 14)); // NOI18N
+        btnVerTabela.setText("VER TABELA");
+        btnVerTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,24 +142,26 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEnviar_Ingredientes)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnVoltar))
                             .addComponent(NOME)
                             .addComponent(MEDIDA)
                             .addComponent(PRATO)
                             .addComponent(BEBIDA))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 247, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtxNome_Ingredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                            .addComponent(jtxUnidadeMedida_Ingredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                            .addComponent(jtxIDPrato_Ingredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                            .addComponent(jtxIDBebida_Ingredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))))
+                            .addComponent(jtxNome_Ingredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jtxUnidadeMedida_Ingredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jtxIDPrato_Ingredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(jtxIDBebida_Ingredientes, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnEnviar_Ingredientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerTabela)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -176,8 +188,9 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEnviar_Ingredientes)
                     .addComponent(btnLimpar)
-                    .addComponent(btnVoltar))
-                .addGap(0, 9, Short.MAX_VALUE))
+                    .addComponent(btnVoltar)
+                    .addComponent(btnVerTabela))
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         pack();
@@ -232,6 +245,11 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
         objIngredientesDAO.cadastrarIngrediente(objIngredientesDTO);
     }//GEN-LAST:event_btnEnviar_IngredientesActionPerformed
 
+    private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
+
+        new tableIngredientesVIEW().setVisible(true);
+    }//GEN-LAST:event_btnVerTabelaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -275,6 +293,7 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel TÍTULO;
     private javax.swing.JButton btnEnviar_Ingredientes;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnVerTabela;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField jtxIDBebida_Ingredientes;
     private javax.swing.JTextField jtxIDPrato_Ingredientes;

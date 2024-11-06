@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS Funcionarios(
 	Telefone varchar(15), 
 	ID_filial int(3),
 	Cargo varchar(255),
-	Data_contatacao datetime,
+	Data_contratacao datetime,
 	PRIMARY KEY (ID_func),
 	FOREIGN KEY (ID_filial) REFERENCES Filiais(ID_filial)
 ); 
@@ -175,7 +175,7 @@ INSERT INTO Filiais (Endereco, Email, Telefone, Quant_mesas, Avaliacao) VALUES
 ('Avenida Serenidade, 1500', 'filial15@restaurante.com', '(32) 16549-8840', 28, 4.6);
 
 -- Inserir dados na tabela Funcionarios
-INSERT INTO Funcionarios (CPF, Nome, Sexo, Idade, Endereco, Email, Telefone, ID_filial, Cargo, Data_contatacao) VALUES 
+INSERT INTO Funcionarios (CPF, Nome, Sexo, Idade, Endereco, Email, Telefone, ID_filial, Cargo, Data_contratacao) VALUES 
 ('098.765.432-10', 'Fernando Gonçalves', 'M', '35', 'Rua P, 404', 'fernando.goncalves@restaurante.com', '(98) 76543-2150', 1, 'Garçom', '2023-02-01 10:00:00'),
 ('987.654.321-09', 'Bianca Ferreira', 'F', '28', 'Rua Q, 505', 'bianca.ferreira@restaurante.com', '(98) 76543-2160', 2, 'Cozinheira', '2023-02-02 11:00:00'),
 ('876.543.210-98', 'Lucas Barbosa', 'M', '32', 'Rua R, 606', 'lucas.barbosa@restaurante.com', '(98) 76543-2170', 3, 'Gerente', '2023-02-03 12:00:00'),

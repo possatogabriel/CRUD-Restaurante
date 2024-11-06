@@ -29,28 +29,30 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnEnviar_Ingredientes" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="NOME" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="MEDIDA" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="PRATO" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="BEBIDA" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="247" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jtxNome_Ingredientes" alignment="0" pref="382" max="32767" attributes="0"/>
-                          <Component id="jtxUnidadeMedida_Ingredientes" alignment="0" pref="382" max="32767" attributes="0"/>
-                          <Component id="jtxIDPrato_Ingredientes" alignment="0" pref="382" max="32767" attributes="0"/>
-                          <Component id="jtxIDBebida_Ingredientes" alignment="0" pref="382" max="32767" attributes="0"/>
+                          <Component id="jtxNome_Ingredientes" alignment="0" pref="401" max="32767" attributes="0"/>
+                          <Component id="jtxUnidadeMedida_Ingredientes" alignment="0" pref="401" max="32767" attributes="0"/>
+                          <Component id="jtxIDPrato_Ingredientes" alignment="0" pref="401" max="32767" attributes="0"/>
+                          <Component id="jtxIDBebida_Ingredientes" alignment="0" pref="401" max="32767" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btnEnviar_Ingredientes" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnVerTabela" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -82,8 +84,9 @@
                   <Component id="btnEnviar_Ingredientes" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVerTabela" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -237,6 +240,20 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtxIDPrato_IngredientesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVerTabela">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Yu Gothic UI Semilight" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="VER TABELA"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerTabelaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

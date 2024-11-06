@@ -47,6 +47,7 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
         PRATO = new javax.swing.JLabel();
         jtxIDPrato_Pedidos = new javax.swing.JTextField();
         jtxIDBebida_Pedidos = new javax.swing.JTextField();
+        btnVerTabela = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +160,15 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
             }
         });
 
+        btnVerTabela.setBackground(new java.awt.Color(0, 153, 153));
+        btnVerTabela.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 14)); // NOI18N
+        btnVerTabela.setText("VER TABELA");
+        btnVerTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,18 +182,12 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PRATO)
                             .addComponent(BEBIDA)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnEnviar_Pedidos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnVoltar))
                             .addComponent(CLIENTE)
                             .addComponent(VALOR)
                             .addComponent(PAGAMENTO)
                             .addComponent(ENDEREÇO)
                             .addComponent(DATA_PEDIDO))
-                        .addGap(0, 116, Short.MAX_VALUE))
+                        .addGap(0, 241, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +196,15 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
                             .addComponent(jtxIDCliente_Pedidos)
                             .addComponent(jtxValor_Pedidos)
                             .addComponent(jtxPagamento_Pedidos)
-                            .addComponent(jtxEndereço_Pedidos))))
+                            .addComponent(jtxEndereço_Pedidos)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnEnviar_Pedidos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerTabela)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -231,7 +243,8 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEnviar_Pedidos)
                     .addComponent(btnLimpar)
-                    .addComponent(btnVoltar))
+                    .addComponent(btnVoltar)
+                    .addComponent(btnVerTabela))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -300,6 +313,11 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
         objPedidosDAO.cadastrarPedido(objPedidosDTO);
     }//GEN-LAST:event_btnEnviar_PedidosActionPerformed
 
+    private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
+
+        new tablePedidosVIEW().setVisible(true);
+    }//GEN-LAST:event_btnVerTabelaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -346,6 +364,7 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel VALOR;
     private javax.swing.JButton btnEnviar_Pedidos;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnVerTabela;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JFormattedTextField jtxDataPedido_Pedidos;
     private javax.swing.JTextField jtxEndereço_Pedidos;
