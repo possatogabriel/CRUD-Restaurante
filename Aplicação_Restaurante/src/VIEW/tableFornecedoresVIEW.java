@@ -34,6 +34,7 @@ public class tableFornecedoresVIEW extends javax.swing.JFrame {
         tabelaFornecedores = new javax.swing.JTable();
         btnListar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
+        jtxPesquisar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +89,8 @@ public class tableFornecedoresVIEW extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(btnListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(202, 202, 202)
                         .addComponent(btnPesquisar)))
                 .addContainerGap())
         );
@@ -100,7 +103,8 @@ public class tableFornecedoresVIEW extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnListar)
-                    .addComponent(btnPesquisar))
+                    .addComponent(btnPesquisar)
+                    .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -155,6 +159,7 @@ public class tableFornecedoresVIEW extends javax.swing.JFrame {
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jtxPesquisar;
     private javax.swing.JTable tabelaFornecedores;
     // End of variables declaration//GEN-END:variables
 
