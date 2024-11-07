@@ -32,6 +32,8 @@
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="btnListar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="boxEstoque" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jtxPesquisar" min="-2" pref="270" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                       <Component id="btnPesquisar" min="-2" max="-2" attributes="0"/>
@@ -52,6 +54,7 @@
                   <Component id="btnListar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtxPesquisar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="boxEstoque" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -146,6 +149,20 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtxPesquisar">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="boxEstoque">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="ID_materia"/>
+            <StringItem index="1" value="Quantidade"/>
+            <StringItem index="2" value="ID_filial"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
