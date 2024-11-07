@@ -9,6 +9,7 @@ import DTO.PratosDTO;
  *
  * @author Gabriel Possato
  */
+
 public class frmPratosBebidasVIEW extends javax.swing.JFrame {
 
     /**
@@ -328,57 +329,28 @@ public class frmPratosBebidasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxDescrição_BebidasActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-                
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnLimpar_PratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpar_PratosActionPerformed
-
         jtxDescrição_Pratos.setText("");
         jtxNome_Pratos.setText("");
         jtxValor_Pratos.setText("");
     }//GEN-LAST:event_btnLimpar_PratosActionPerformed
 
     private void btnLimpar_BebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpar_BebidasActionPerformed
-        
         jtxDescrição_Bebidas.setText("");
         jtxNome_Bebidas.setText("");
         jtxValor_Bebidas.setText("");
     }//GEN-LAST:event_btnLimpar_BebidasActionPerformed
 
     private void btnEnviar_PratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_PratosActionPerformed
-        String Nome_PratosVIEW, Descrição_PratosVIEW, Valor_PratosVIEW;
-        
-        Nome_PratosVIEW = jtxNome_Pratos.getText();
-        Descrição_PratosVIEW = jtxDescrição_Pratos.getText();
-        Valor_PratosVIEW = jtxValor_Pratos.getText();
-        
-        PratosDTO objPratosDTO = new PratosDTO();
-        
-        objPratosDTO.setDescrição_PratosDTO(Descrição_PratosVIEW);
-        objPratosDTO.setNome_PratosDTO(Nome_PratosVIEW);
-        objPratosDTO.setValor_PratosDTO(Valor_PratosVIEW);
-        
-        PratosDAO objPratosDAO = new PratosDAO();
-        objPratosDAO.cadastrarPrato(objPratosDTO);
+        cadastrarPratos();
     }//GEN-LAST:event_btnEnviar_PratosActionPerformed
 
     private void btnEnviar_BebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_BebidasActionPerformed
-        String Nome_BebidasVIEW, Descrição_BebidasVIEW, Valor_BebidasVIEW;
-        
-        Nome_BebidasVIEW = jtxNome_Bebidas.getText();
-        Descrição_BebidasVIEW = jtxDescrição_Bebidas.getText();
-        Valor_BebidasVIEW = jtxValor_Bebidas.getText();
-        
-        BebidasDTO objBebidasDTO = new BebidasDTO();
-        
-        objBebidasDTO.setDescrição_BebidasDTO(Descrição_BebidasVIEW);
-        objBebidasDTO.setNome_BebidasDTO(Nome_BebidasVIEW);
-        objBebidasDTO.setValor_BebidasDTO(Valor_BebidasVIEW);
-        
-        BebidasDAO objBebidasDAO = new BebidasDAO();
-        objBebidasDAO.cadastrarBebida(objBebidasDTO);
+        cadastrarBebidas();
     }//GEN-LAST:event_btnEnviar_BebidasActionPerformed
 
     private void btnVerTabelaPratosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaPratosActionPerformed
@@ -449,4 +421,38 @@ public class frmPratosBebidasVIEW extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jtxValor_Bebidas;
     private javax.swing.JFormattedTextField jtxValor_Pratos;
     // End of variables declaration//GEN-END:variables
+    
+    private void cadastrarPratos() {
+        String Nome_PratosVIEW, Descrição_PratosVIEW, Valor_PratosVIEW;
+        
+        Nome_PratosVIEW = jtxNome_Pratos.getText();
+        Descrição_PratosVIEW = jtxDescrição_Pratos.getText();
+        Valor_PratosVIEW = jtxValor_Pratos.getText();
+        
+        PratosDTO objPratosDTO = new PratosDTO();
+        
+        objPratosDTO.setDescrição_PratosDTO(Descrição_PratosVIEW);
+        objPratosDTO.setNome_PratosDTO(Nome_PratosVIEW);
+        objPratosDTO.setValor_PratosDTO(Valor_PratosVIEW);
+        
+        PratosDAO objPratosDAO = new PratosDAO();
+        objPratosDAO.cadastrarPrato(objPratosDTO);
+    }
+    
+    private void cadastrarBebidas() {
+        String Nome_BebidasVIEW, Descrição_BebidasVIEW, Valor_BebidasVIEW;
+        
+        Nome_BebidasVIEW = jtxNome_Bebidas.getText();
+        Descrição_BebidasVIEW = jtxDescrição_Bebidas.getText();
+        Valor_BebidasVIEW = jtxValor_Bebidas.getText();
+        
+        BebidasDTO objBebidasDTO = new BebidasDTO();
+        
+        objBebidasDTO.setDescrição_BebidasDTO(Descrição_BebidasVIEW);
+        objBebidasDTO.setNome_BebidasDTO(Nome_BebidasVIEW);
+        objBebidasDTO.setValor_BebidasDTO(Valor_BebidasVIEW);
+        
+        BebidasDAO objBebidasDAO = new BebidasDAO();
+        objBebidasDAO.cadastrarBebida(objBebidasDTO);
+    }
 }

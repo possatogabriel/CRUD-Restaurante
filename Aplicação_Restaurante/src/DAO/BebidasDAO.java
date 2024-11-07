@@ -3,14 +3,18 @@ package DAO;
 import java.sql.*;
 
 import DTO.BebidasDTO;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
  * @author Gabriel Possato
  */
 public class BebidasDAO {
+    
     Connection conn;
     PreparedStatement pstm;
+    ResultSet rs;
+    ArrayList<BebidasDTO> lista = new ArrayList<>();
     
     public void cadastrarBebida(BebidasDTO objBebidasDTO) {
         String sql = "INSERT INTO Bebidas (Nome, Descricao, Valor) VALUES (?,?,?)";
@@ -31,5 +35,32 @@ public class BebidasDAO {
         catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'BebidasDAO': " + erro);
         }
+    }
+    
+        public ArrayList<BebidasDTO> listarBebidas() {
+        String sql = "SELECT * FROM Bebidas";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                BebidasDTO objBebidasDTO = new BebidasDTO();
+                objBebidasDTO.setNome_BebidasDTO(rs.getString("Nome"));
+                objBebidasDTO.setDescrição_BebidasDTO(rs.getString("Descricao"));
+                objBebidasDTO.setValor_BebidasDTO(rs.getString("Valor"));
+                
+                lista.add(objBebidasDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'BebidasDAO' - 'listarBebidas': " + erro);
+        }
+        
+        return lista;
     }
 }

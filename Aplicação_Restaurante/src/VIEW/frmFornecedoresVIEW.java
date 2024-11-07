@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
 
 import DAO.FornecedoresDAO;
@@ -9,8 +5,9 @@ import DTO.FornecedoresDTO;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Possato
  */
+
 public class frmFornecedoresVIEW extends javax.swing.JFrame {
 
     /**
@@ -244,13 +241,11 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxMaterial_FornecedoresActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-                
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        
         jtxCNPJ_Fornecedores.setText("");
         jtxEmail_Fornecedores.setText("");
         jtxMaterial_Fornecedores.setText("");
@@ -260,25 +255,7 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnEnviar_FornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_FornecedoresActionPerformed
-        String CNPJ_FornecedoresVIEW, Email_FornecedoresVIEW, Material_FornecedoresVIEW, Nome_FornecedoresVIEW, Telefone_FornecedoresVIEW, Valor_FornecedoresVIEW; 
-        
-        CNPJ_FornecedoresVIEW = jtxCNPJ_Fornecedores.getText();
-        Email_FornecedoresVIEW = jtxEmail_Fornecedores.getText();
-        Material_FornecedoresVIEW = jtxMaterial_Fornecedores.getText();
-        Nome_FornecedoresVIEW = jtxNome_Fornecedores.getText();
-        Telefone_FornecedoresVIEW = jtxTelefone_Fornecedores.getText();
-        Valor_FornecedoresVIEW = jtxValor_Fornecedores.getText();
-        
-        FornecedoresDTO objFornecedorDTO = new FornecedoresDTO();
-        objFornecedorDTO.setCNPJ_FornecedoresDTO(CNPJ_FornecedoresVIEW);
-        objFornecedorDTO.setEmail_FornecedoresDTO(Email_FornecedoresVIEW);
-        objFornecedorDTO.setMaterial_FornecedoresDTO(Material_FornecedoresVIEW);
-        objFornecedorDTO.setNome_FornecedoresDTO(Nome_FornecedoresVIEW);
-        objFornecedorDTO.setTelefone_FornecedoresDTO(Telefone_FornecedoresVIEW);
-        objFornecedorDTO.setValor_FornecedoresDTO(Valor_FornecedoresVIEW);
-        
-        FornecedoresDAO objFornecedoresDAO = new FornecedoresDAO();
-        objFornecedoresDAO.cadastrarFornecedor(objFornecedorDTO);
+        cadastrarFornecedores();
     }//GEN-LAST:event_btnEnviar_FornecedoresActionPerformed
 
     private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
@@ -340,4 +317,26 @@ public class frmFornecedoresVIEW extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jtxTelefone_Fornecedores;
     private javax.swing.JFormattedTextField jtxValor_Fornecedores;
     // End of variables declaration//GEN-END:variables
+
+    private void cadastrarFornecedores() {
+        String CNPJ_FornecedoresVIEW, Email_FornecedoresVIEW, Material_FornecedoresVIEW, Nome_FornecedoresVIEW, Telefone_FornecedoresVIEW, Valor_FornecedoresVIEW; 
+        
+        CNPJ_FornecedoresVIEW = jtxCNPJ_Fornecedores.getText();
+        Email_FornecedoresVIEW = jtxEmail_Fornecedores.getText();
+        Material_FornecedoresVIEW = jtxMaterial_Fornecedores.getText();
+        Nome_FornecedoresVIEW = jtxNome_Fornecedores.getText();
+        Telefone_FornecedoresVIEW = jtxTelefone_Fornecedores.getText();
+        Valor_FornecedoresVIEW = jtxValor_Fornecedores.getText();
+        
+        FornecedoresDTO objFornecedorDTO = new FornecedoresDTO();
+        objFornecedorDTO.setCNPJ_FornecedoresDTO(CNPJ_FornecedoresVIEW);
+        objFornecedorDTO.setEmail_FornecedoresDTO(Email_FornecedoresVIEW);
+        objFornecedorDTO.setMaterial_FornecedoresDTO(Material_FornecedoresVIEW);
+        objFornecedorDTO.setNome_FornecedoresDTO(Nome_FornecedoresVIEW);
+        objFornecedorDTO.setTelefone_FornecedoresDTO(Telefone_FornecedoresVIEW);
+        objFornecedorDTO.setValor_FornecedoresDTO(Valor_FornecedoresVIEW);
+        
+        FornecedoresDAO objFornecedoresDAO = new FornecedoresDAO();
+        objFornecedoresDAO.cadastrarFornecedor(objFornecedorDTO);
+    }
 }

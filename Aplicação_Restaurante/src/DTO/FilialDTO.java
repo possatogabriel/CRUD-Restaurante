@@ -4,7 +4,9 @@ package DTO;
  *
  * @author Gabriel Possato
  */
+
 public class FilialDTO {
+    
     private String Endereço_FiliaisDTO, Email_FiliaisDTO, Telefone_FiliaisDTO, Avaliação_FiliaisDTO;
     private int QtndMesas_FiliaisDTO;
 

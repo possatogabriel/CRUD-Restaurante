@@ -4,7 +4,9 @@ package DTO;
  *
  * @author Gabriel Possato
  */
+
 public class IngredientesDTO {
+    
     private String Nome_IngredientesDTO, UnidadeMedida_IngredientesDTO;
     private int IDPrato_IngredientesDTO, IDBebida_IngredientesDTO;
 

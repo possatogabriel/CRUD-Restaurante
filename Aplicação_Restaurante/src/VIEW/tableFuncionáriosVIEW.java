@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
 
 import DAO.FuncionáriosDAO;
@@ -12,8 +8,9 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CAMARGO
+ * @author Gabriel Possato
  */
+
 public class tableFuncionáriosVIEW extends javax.swing.JFrame {
 
     /**
@@ -190,5 +187,4 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableFuncionáriosVIEW': " + erro);
         }
     }
-
 }

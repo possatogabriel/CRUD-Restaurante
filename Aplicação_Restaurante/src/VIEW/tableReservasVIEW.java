@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
+
+import DAO.ReservasDAO;
+import DTO.ReservasDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CAMARGO
+ * @author Gabriel Possato
  */
+
 public class tableReservasVIEW extends javax.swing.JFrame {
 
     /**
@@ -105,7 +108,7 @@ public class tableReservasVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresReservas();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +157,29 @@ public class tableReservasVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaReservas;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresReservas(){
+        try {
+            ReservasDAO objReservasDAO = new ReservasDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaReservas.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<ReservasDTO> lista = objReservasDAO.listarReservas();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getDataReserva_Reservas(),
+                    lista.get(num).getIDCliente_Reservas(),
+                    lista.get(num).getMesa_Reservas(),
+                    lista.get(num).getIDFilial_Reservas(),
+                    lista.get(num).getCapacidade_Reservas(),
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableReservasVIEW': " + erro);
+        }
+    }
 }

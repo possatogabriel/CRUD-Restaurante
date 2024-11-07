@@ -4,7 +4,9 @@ package DTO;
  *
  * @author Gabriel Possato
  */
+
 public class FuncionáriosDTO {
+    
     private String CPF_FuncionáriosDTO, Nome_FuncionáriosDTO, Sexo_FuncionáriosDTO, Endereço_FuncionáriosDTO, Email_FuncionáriosDTO, Telefone_FuncionáriosDTO, Cargo_FuncionáriosDTO, DataContratação_FuncionáriosDTO;   
     private int Idade_FuncionáriosDTO, IDFilial_FuncionáriosDTO;
 

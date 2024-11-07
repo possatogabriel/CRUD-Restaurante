@@ -7,6 +7,7 @@ import DTO.EstoqueDTO;
  *
  * @author Gabriel Possato
  */
+
 public class frmEstoqueVIEW extends javax.swing.JFrame {
 
     /**
@@ -186,32 +187,18 @@ public class frmEstoqueVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxIDFilial_EstoqueActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-                
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        
         jtxIDFilial_Estoque.setText("");
         jtxIDFornecedor_Estoque.setText("");
         jtxQntd_Estoque.setText("");    
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnEnviar_EstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_EstoqueActionPerformed
-        int IDFilial_EstoqueVIEW, IDFornecedor_EstoqueVIEW, Qntd_EstoqueVIEW;
-        
-        IDFilial_EstoqueVIEW = Integer.parseInt(jtxIDFilial_Estoque.getText());
-        IDFornecedor_EstoqueVIEW = Integer.parseInt(jtxIDFornecedor_Estoque.getText());
-        Qntd_EstoqueVIEW = Integer.parseInt(jtxQntd_Estoque.getText());
-        
-        EstoqueDTO objEstoqueDTO = new EstoqueDTO();
-        objEstoqueDTO.setIDFilial_EstoqueDTO(IDFilial_EstoqueVIEW);
-        objEstoqueDTO.setIDFornecedor_EstoqueDTO(IDFornecedor_EstoqueVIEW);
-        objEstoqueDTO.setQntd_EstoqueDTO(Qntd_EstoqueVIEW);
-                
-        EstoqueDAO objEstoqueDAO = new EstoqueDAO();
-        objEstoqueDAO.cadastrarEstoque(objEstoqueDTO);  
+        cadastrarEstoque(); 
     }//GEN-LAST:event_btnEnviar_EstoqueActionPerformed
 
     private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
@@ -267,4 +254,20 @@ public class frmEstoqueVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField jtxIDFornecedor_Estoque;
     private javax.swing.JTextField jtxQntd_Estoque;
     // End of variables declaration//GEN-END:variables
+
+    private void cadastrarEstoque() {
+        int IDFilial_EstoqueVIEW, IDFornecedor_EstoqueVIEW, Qntd_EstoqueVIEW;
+        
+        IDFilial_EstoqueVIEW = Integer.parseInt(jtxIDFilial_Estoque.getText());
+        IDFornecedor_EstoqueVIEW = Integer.parseInt(jtxIDFornecedor_Estoque.getText());
+        Qntd_EstoqueVIEW = Integer.parseInt(jtxQntd_Estoque.getText());
+        
+        EstoqueDTO objEstoqueDTO = new EstoqueDTO();
+        objEstoqueDTO.setIDFilial_EstoqueDTO(IDFilial_EstoqueVIEW);
+        objEstoqueDTO.setIDFornecedor_EstoqueDTO(IDFornecedor_EstoqueVIEW);
+        objEstoqueDTO.setQntd_EstoqueDTO(Qntd_EstoqueVIEW);
+                
+        EstoqueDAO objEstoqueDAO = new EstoqueDAO();
+        objEstoqueDAO.cadastrarEstoque(objEstoqueDTO); 
+    }
 }

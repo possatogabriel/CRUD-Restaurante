@@ -4,7 +4,9 @@ package DTO;
  *
  * @author Gabriel Possato
  */
+
 public class ReservasDTO {
+    
     private int IDCliente_Reservas, Capacidade_Reservas, IDFilial_Reservas;
     private String DataReserva_Reservas, Mesa_Reservas;    
 

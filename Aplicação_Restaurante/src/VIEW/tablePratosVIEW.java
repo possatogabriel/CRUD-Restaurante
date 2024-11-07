@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
+
+import DAO.PratosDAO;
+import DTO.PratosDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Possato
  */
+
 public class tablePratosVIEW extends javax.swing.JFrame {
 
     /**
@@ -105,7 +108,7 @@ public class tablePratosVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresPratos();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +157,27 @@ public class tablePratosVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaPratos;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresPratos(){
+        try {
+            PratosDAO objPratosDAO = new PratosDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaPratos.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<PratosDTO> lista = objPratosDAO.listarPratos();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getNome_PratosDTO(),
+                    lista.get(num).getDescrição_PratosDTO(),
+                    lista.get(num).getValor_PratosDTO(),
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tablePratosVIEW': " + erro);
+        }
+    }
 }

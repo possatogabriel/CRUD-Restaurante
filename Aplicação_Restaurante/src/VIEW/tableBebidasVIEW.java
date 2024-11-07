@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
+
+import DAO.BebidasDAO;
+import DTO.BebidasDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Possato
  */
+
 public class tableBebidasVIEW extends javax.swing.JFrame {
 
     /**
@@ -105,7 +108,7 @@ public class tableBebidasVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresBebidas();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +157,27 @@ public class tableBebidasVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaBebidas;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresBebidas(){
+        try {
+            BebidasDAO objBebidasDAO = new BebidasDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaBebidas.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<BebidasDTO> lista = objBebidasDAO.listarBebidas();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getNome_BebidasDTO(),
+                    lista.get(num).getDescrição_BebidasDTO(),
+                    lista.get(num).getValor_BebidasDTO(),
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableBebidasVIEW': " + erro);
+        }
+    }
 }

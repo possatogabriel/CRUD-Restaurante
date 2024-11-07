@@ -296,49 +296,15 @@ public class frmClienteVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxEmail_ClientesActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-                
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnEnviar_ClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_ClientesActionPerformed
-
-        String CPF_ClienteVIEW, Nome_ClienteVIEW, Sexo_ClienteVIEW, Endereço_ClienteVIEW, Email_ClienteVIEW, Telefone_ClienteVIEW, DataCadastro_ClienteVIEW;
-        int Idade_ClienteVIEW;
-        
-        if (radioMasculino.isSelected()){
-            Sexo_ClienteVIEW = "M";
-        }
-        
-        else {
-            Sexo_ClienteVIEW = "F";
-        }
-        
-        CPF_ClienteVIEW = jtxCPF_Clientes.getText();
-        Nome_ClienteVIEW = jtxNome_Clientes.getText();
-        Idade_ClienteVIEW = Integer.parseInt(jtxIdade_Clientes.getText());
-        Endereço_ClienteVIEW = jtxEndereço_Clientes.getText();
-        Email_ClienteVIEW = jtxEmail_Clientes.getText();
-        Telefone_ClienteVIEW = jtxTelefone_Clientes.getText();
-        DataCadastro_ClienteVIEW = jtxDataCadastro_Clientes.getText();
-        
-        ClienteDTO objClienteDTO = new ClienteDTO();
-        
-        objClienteDTO.setCPF_ClienteDTO(CPF_ClienteVIEW);
-        objClienteDTO.setNome_ClienteDTO(Nome_ClienteVIEW);
-        objClienteDTO.setSexo_ClienteDTO(Sexo_ClienteVIEW);
-        objClienteDTO.setIdade_ClienteDTO(Idade_ClienteVIEW);
-        objClienteDTO.setEndereço_ClienteDTO(Endereço_ClienteVIEW);
-        objClienteDTO.setEmail_ClienteDTO(Email_ClienteVIEW);
-        objClienteDTO.setTelefone_ClienteDTO(Telefone_ClienteVIEW);
-        objClienteDTO.setDataCadastro_ClienteDTO(DataCadastro_ClienteVIEW);
-        
-        ClienteDAO objClienteDAO = new ClienteDAO();
-        objClienteDAO.cadastrarCliente(objClienteDTO);
+        cadastrarClientes();
     }//GEN-LAST:event_btnEnviar_ClientesActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        
         jtxCPF_Clientes.setText("");
         jtxDataCadastro_Clientes.setText("");
         jtxEmail_Clientes.setText("");
@@ -357,7 +323,6 @@ public class frmClienteVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_radioMasculinoActionPerformed
 
     private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
-
         new tableClienteVIEW().setVisible(true);
     }//GEN-LAST:event_btnVerTabelaActionPerformed
 
@@ -421,4 +386,39 @@ public class frmClienteVIEW extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioFeminino;
     private javax.swing.JRadioButton radioMasculino;
     // End of variables declaration//GEN-END:variables
+    
+    private void cadastrarClientes() {
+        String CPF_ClienteVIEW, Nome_ClienteVIEW, Sexo_ClienteVIEW, Endereço_ClienteVIEW, Email_ClienteVIEW, Telefone_ClienteVIEW, DataCadastro_ClienteVIEW;
+        int Idade_ClienteVIEW;
+        
+        if (radioMasculino.isSelected()){
+            Sexo_ClienteVIEW = "M";
+        }
+        
+        else {
+            Sexo_ClienteVIEW = "F";
+        }
+        
+        CPF_ClienteVIEW = jtxCPF_Clientes.getText();
+        Nome_ClienteVIEW = jtxNome_Clientes.getText();
+        Idade_ClienteVIEW = Integer.parseInt(jtxIdade_Clientes.getText());
+        Endereço_ClienteVIEW = jtxEndereço_Clientes.getText();
+        Email_ClienteVIEW = jtxEmail_Clientes.getText();
+        Telefone_ClienteVIEW = jtxTelefone_Clientes.getText();
+        DataCadastro_ClienteVIEW = jtxDataCadastro_Clientes.getText();
+        
+        ClienteDTO objClienteDTO = new ClienteDTO();
+        
+        objClienteDTO.setCPF_ClienteDTO(CPF_ClienteVIEW);
+        objClienteDTO.setNome_ClienteDTO(Nome_ClienteVIEW);
+        objClienteDTO.setSexo_ClienteDTO(Sexo_ClienteVIEW);
+        objClienteDTO.setIdade_ClienteDTO(Idade_ClienteVIEW);
+        objClienteDTO.setEndereço_ClienteDTO(Endereço_ClienteVIEW);
+        objClienteDTO.setEmail_ClienteDTO(Email_ClienteVIEW);
+        objClienteDTO.setTelefone_ClienteDTO(Telefone_ClienteVIEW);
+        objClienteDTO.setDataCadastro_ClienteDTO(DataCadastro_ClienteVIEW);
+        
+        ClienteDAO objClienteDAO = new ClienteDAO();
+        objClienteDAO.cadastrarCliente(objClienteDTO);
+    }
 }

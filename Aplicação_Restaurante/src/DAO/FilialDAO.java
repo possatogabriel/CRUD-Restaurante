@@ -1,14 +1,16 @@
 package DAO;
 
 import java.sql.*;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import DTO.FilialDTO;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriel Possato
  */
+
 public class FilialDAO {
     
     Connection conn;
@@ -66,5 +68,4 @@ public class FilialDAO {
         
         return lista;
     }
-    
 }

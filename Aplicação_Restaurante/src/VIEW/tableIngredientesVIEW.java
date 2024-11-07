@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
+
+import DAO.IngredientesDAO;
+import DTO.IngredientesDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CAMARGO
+ * @author Gabriel Possato
  */
+
 public class tableIngredientesVIEW extends javax.swing.JFrame {
 
     /**
@@ -105,7 +108,7 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresIngredientes();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +157,28 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaIngredientes;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresIngredientes(){
+        try {
+            IngredientesDAO objIngredientesDAO = new IngredientesDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaIngredientes.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<IngredientesDTO> lista = objIngredientesDAO.listarIngredientes();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getNome_IngredientesDTO(),
+                    lista.get(num).getUnidadeMedida_IngredientesDTO(),
+                    lista.get(num).getIDPrato_IngredientesDTO(),
+                    lista.get(num).getIDBebida_IngredientesDTO()
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableIngredientesVIEW': " + erro);
+        }
+    }
 }

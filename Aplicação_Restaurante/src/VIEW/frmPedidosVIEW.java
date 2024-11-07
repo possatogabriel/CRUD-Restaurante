@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
 
 import DAO.PedidosDAO;
@@ -9,8 +5,9 @@ import DTO.PedidosDTO;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Possato
  */
+
 public class frmPedidosVIEW extends javax.swing.JFrame {
 
     /**
@@ -272,7 +269,6 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxIDBebida_PedidosActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-                
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -288,33 +284,10 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnEnviar_PedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_PedidosActionPerformed
-        String DataPedido_PedidosVIEW, Endereço_PedidosVIEW, Pagamento_PedidosVIEW, Valor_PedidosVIEW;
-        int IDBebida_PedidosVIEW, IDCliente_PedidosVIEW, IDPrato_PedidosVIEW;
-        
-        DataPedido_PedidosVIEW = jtxDataPedido_Pedidos.getText();
-        Endereço_PedidosVIEW = jtxEndereço_Pedidos.getText();
-        Pagamento_PedidosVIEW = jtxPagamento_Pedidos.getText();
-        Valor_PedidosVIEW = jtxValor_Pedidos.getText();
-        IDBebida_PedidosVIEW = Integer.parseInt(jtxIDBebida_Pedidos.getText());
-        IDPrato_PedidosVIEW = Integer.parseInt(jtxIDPrato_Pedidos.getText());
-        IDCliente_PedidosVIEW = Integer.parseInt(jtxIDCliente_Pedidos.getText());
-        
-        PedidosDTO objPedidosDTO = new PedidosDTO();
-        
-        objPedidosDTO.setDataPedido_PedidosDTO(DataPedido_PedidosVIEW);
-        objPedidosDTO.setEndereço_PedidosDTO(Endereço_PedidosVIEW);
-        objPedidosDTO.setIDBebida_PedidosDTO(IDBebida_PedidosVIEW);
-        objPedidosDTO.setIDCliente_PedidosDTO(IDCliente_PedidosVIEW);
-        objPedidosDTO.setIDPrato_PedidosDTO(IDPrato_PedidosVIEW);
-        objPedidosDTO.setPagamento_PedidosDTO(Pagamento_PedidosVIEW);
-        objPedidosDTO.setValor_PedidosDTO(Valor_PedidosVIEW);
-        
-        PedidosDAO objPedidosDAO = new PedidosDAO();
-        objPedidosDAO.cadastrarPedido(objPedidosDTO);
+        cadastrarPedidos();
     }//GEN-LAST:event_btnEnviar_PedidosActionPerformed
 
     private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
-
         new tablePedidosVIEW().setVisible(true);
     }//GEN-LAST:event_btnVerTabelaActionPerformed
 
@@ -374,4 +347,30 @@ public class frmPedidosVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField jtxPagamento_Pedidos;
     private javax.swing.JFormattedTextField jtxValor_Pedidos;
     // End of variables declaration//GEN-END:variables
+
+    private void cadastrarPedidos() {
+        String DataPedido_PedidosVIEW, Endereço_PedidosVIEW, Pagamento_PedidosVIEW, Valor_PedidosVIEW;
+        int IDBebida_PedidosVIEW, IDCliente_PedidosVIEW, IDPrato_PedidosVIEW;
+        
+        DataPedido_PedidosVIEW = jtxDataPedido_Pedidos.getText();
+        Endereço_PedidosVIEW = jtxEndereço_Pedidos.getText();
+        Pagamento_PedidosVIEW = jtxPagamento_Pedidos.getText();
+        Valor_PedidosVIEW = jtxValor_Pedidos.getText();
+        IDBebida_PedidosVIEW = Integer.parseInt(jtxIDBebida_Pedidos.getText());
+        IDPrato_PedidosVIEW = Integer.parseInt(jtxIDPrato_Pedidos.getText());
+        IDCliente_PedidosVIEW = Integer.parseInt(jtxIDCliente_Pedidos.getText());
+        
+        PedidosDTO objPedidosDTO = new PedidosDTO();
+        
+        objPedidosDTO.setDataPedido_PedidosDTO(DataPedido_PedidosVIEW);
+        objPedidosDTO.setEndereço_PedidosDTO(Endereço_PedidosVIEW);
+        objPedidosDTO.setIDBebida_PedidosDTO(IDBebida_PedidosVIEW);
+        objPedidosDTO.setIDCliente_PedidosDTO(IDCliente_PedidosVIEW);
+        objPedidosDTO.setIDPrato_PedidosDTO(IDPrato_PedidosVIEW);
+        objPedidosDTO.setPagamento_PedidosDTO(Pagamento_PedidosVIEW);
+        objPedidosDTO.setValor_PedidosDTO(Valor_PedidosVIEW);
+        
+        PedidosDAO objPedidosDAO = new PedidosDAO();
+        objPedidosDAO.cadastrarPedido(objPedidosDTO);
+    }
 }

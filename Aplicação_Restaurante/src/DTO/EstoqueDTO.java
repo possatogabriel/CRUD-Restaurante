@@ -4,6 +4,7 @@ package DTO;
  *
  * @author Gabriel Possato
  */
+
 public class EstoqueDTO {
     
     private int IDFornecedor_EstoqueDTO, Qntd_EstoqueDTO, IDFilial_EstoqueDTO;

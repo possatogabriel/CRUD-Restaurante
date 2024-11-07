@@ -4,6 +4,7 @@ package DTO;
  *
  * @author Gabriel Possato
  */
+
 public class ClienteDTO {
     
     private String CPF_ClienteDTO, Nome_ClienteDTO, Sexo_ClienteDTO, Endereço_ClienteDTO, Email_ClienteDTO, Telefone_ClienteDTO, DataCadastro_ClienteDTO;

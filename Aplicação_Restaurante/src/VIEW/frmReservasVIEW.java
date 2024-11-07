@@ -7,6 +7,7 @@ import DTO.ReservasDTO;
  *
  * @author Gabriel Possato
  */
+
 public class frmReservasVIEW extends javax.swing.JFrame {
 
     /**
@@ -227,13 +228,11 @@ public class frmReservasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxCapacidade_ReservasActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        
         jtxCapacidade_Reservas.setText("");
         jtxDataReserva_Reservas.setText("");
         jtxIDCliente_Reservas.setText("");
@@ -242,25 +241,7 @@ public class frmReservasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnEnviar_ReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_ReservasActionPerformed
-        int Capacidade_ReservasVIEW, IDCliente_ReservasVIEW, IDFilial_ReservasVIEW;
-        String DataReserva_ReservasVIEW, Mesa_ReservasVIEW;
-        
-        Capacidade_ReservasVIEW = Integer.parseInt(jtxCapacidade_Reservas.getText());
-        IDCliente_ReservasVIEW = Integer.parseInt(jtxIDCliente_Reservas.getText());
-        IDFilial_ReservasVIEW = Integer.parseInt(jtxIDFilial_Reservas.getText());
-        DataReserva_ReservasVIEW = jtxDataReserva_Reservas.getText();
-        Mesa_ReservasVIEW = jtxMesa_Reservas.getText();
-        
-        ReservasDTO objReservasDTO = new ReservasDTO();
-        
-        objReservasDTO.setCapacidade_Reservas(Capacidade_ReservasVIEW);
-        objReservasDTO.setDataReserva_Reservas(DataReserva_ReservasVIEW);
-        objReservasDTO.setIDCliente_Reservas(IDCliente_ReservasVIEW);
-        objReservasDTO.setIDFilial_Reservas(IDFilial_ReservasVIEW);
-        objReservasDTO.setMesa_Reservas(Mesa_ReservasVIEW);
-        
-        ReservasDAO objReservasDAO = new ReservasDAO();
-        objReservasDAO.cadastrarReserva(objReservasDTO);
+        cadastrarReservas();
     }//GEN-LAST:event_btnEnviar_ReservasActionPerformed
 
     private void btnVerTabelaBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaBebidasActionPerformed
@@ -319,4 +300,26 @@ public class frmReservasVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField jtxIDFilial_Reservas;
     private javax.swing.JTextField jtxMesa_Reservas;
     // End of variables declaration//GEN-END:variables
+    
+    private void cadastrarReservas() {
+        int Capacidade_ReservasVIEW, IDCliente_ReservasVIEW, IDFilial_ReservasVIEW;
+        String DataReserva_ReservasVIEW, Mesa_ReservasVIEW;
+        
+        Capacidade_ReservasVIEW = Integer.parseInt(jtxCapacidade_Reservas.getText());
+        IDCliente_ReservasVIEW = Integer.parseInt(jtxIDCliente_Reservas.getText());
+        IDFilial_ReservasVIEW = Integer.parseInt(jtxIDFilial_Reservas.getText());
+        DataReserva_ReservasVIEW = jtxDataReserva_Reservas.getText();
+        Mesa_ReservasVIEW = jtxMesa_Reservas.getText();
+        
+        ReservasDTO objReservasDTO = new ReservasDTO();
+        
+        objReservasDTO.setCapacidade_Reservas(Capacidade_ReservasVIEW);
+        objReservasDTO.setDataReserva_Reservas(DataReserva_ReservasVIEW);
+        objReservasDTO.setIDCliente_Reservas(IDCliente_ReservasVIEW);
+        objReservasDTO.setIDFilial_Reservas(IDFilial_ReservasVIEW);
+        objReservasDTO.setMesa_Reservas(Mesa_ReservasVIEW);
+        
+        ReservasDAO objReservasDAO = new ReservasDAO();
+        objReservasDAO.cadastrarReserva(objReservasDTO);
+    }
 }

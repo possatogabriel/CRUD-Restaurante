@@ -2,15 +2,21 @@ package DAO;
 
 import java.sql.*;
 
+import java.util.ArrayList;
 import DTO.EntregasDTO;    
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriel Possato
  */
+
 public class EntregasDAO {
+    
     Connection conn;
     PreparedStatement pstm;
+    ResultSet rs;
+    ArrayList<EntregasDTO> lista = new ArrayList<>();
     
     public void cadastrarEntregas(EntregasDTO objEntregasDTO) {
         String sql = "INSERT INTO Entregas (Endereco, ID_pedido, Data_entrega) VALUES (?,?,?)";
@@ -30,5 +36,32 @@ public class EntregasDAO {
         catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'EntregasDAO': " + erro);
         }
+    }
+    
+    public ArrayList<EntregasDTO> listarEntregas() {
+        String sql = "SELECT * FROM Entregas";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                EntregasDTO objEntregasDTO = new EntregasDTO();
+                objEntregasDTO.setEndereço_EntregasDTO(rs.getString("Endereco"));
+                objEntregasDTO.setIDPedido_EntregasDTO(rs.getInt("ID_pedido"));
+                objEntregasDTO.setDataEntrega_EntregasDTO(rs.getString("Data_entrega"));
+                
+                lista.add(objEntregasDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'EntregasDAO' - 'listarEntregas': " + erro);
+        }
+        
+        return lista;
     }
 }

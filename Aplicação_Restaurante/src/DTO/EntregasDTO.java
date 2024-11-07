@@ -4,7 +4,9 @@ package DTO;
  *
  * @author Gabriel Possato
  */
-public class EntregasDTO { 
+
+public class EntregasDTO {
+    
     private String Endereço_EntregasDTO, DataEntrega_EntregasDTO;
     private int IDPedido_EntregasDTO;
 

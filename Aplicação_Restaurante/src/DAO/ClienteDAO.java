@@ -1,8 +1,8 @@
 package DAO;
 
 import java.sql.*;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import DTO.ClienteDTO;
 import javax.swing.JOptionPane;
 
@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author Gabriel Possato
  */
+
 public class ClienteDAO {
     
     Connection conn;
@@ -73,5 +74,4 @@ public class ClienteDAO {
         
         return lista;
     }
-    
 }

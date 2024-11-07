@@ -2,10 +2,12 @@ package DAO;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriel Possato
  */
+
 public class ConexãoDAO {
     
     public Connection connectorDB(){
@@ -23,6 +25,5 @@ public class ConexãoDAO {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'ConexãoDAO': " + erro);
         }
         return conn;
-    }
-    
+    } 
 }

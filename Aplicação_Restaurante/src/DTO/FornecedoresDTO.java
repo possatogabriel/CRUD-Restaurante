@@ -4,7 +4,9 @@ package DTO;
  *
  * @author Gabriel Possato
  */
+
 public class FornecedoresDTO {
+    
     private String Nome_FornecedoresDTO, CNPJ_FornecedoresDTO, Material_FornecedoresDTO, Email_FornecedoresDTO, Telefone_FornecedoresDTO, Valor_FornecedoresDTO; 
 
     public String getNome_FornecedoresDTO() {

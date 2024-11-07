@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
 
 import DAO.IngredientesDAO;
@@ -9,8 +5,9 @@ import DTO.IngredientesDTO;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Possato
  */
+
 public class frmIngredientesVIEW extends javax.swing.JFrame {
 
     /**
@@ -213,7 +210,6 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxIDPrato_IngredientesActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-                
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -226,23 +222,7 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnEnviar_IngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_IngredientesActionPerformed
-        String Nome_IngredientesVIEW, UnidadeMedida_IngredientesVIEW;
-        int IDPrato_IngredientesVIEW, IDBebida_IngredientesVIEW;
-        
-        Nome_IngredientesVIEW = jtxNome_Ingredientes.getText();
-        UnidadeMedida_IngredientesVIEW = jtxUnidadeMedida_Ingredientes.getText();
-        IDPrato_IngredientesVIEW = Integer.parseInt(jtxIDPrato_Ingredientes.getText());
-        IDBebida_IngredientesVIEW = Integer.parseInt(jtxIDBebida_Ingredientes.getText());
-        
-        IngredientesDTO objIngredientesDTO = new IngredientesDTO();
-        
-        objIngredientesDTO.setIDBebida_IngredientesDTO(IDBebida_IngredientesVIEW);
-        objIngredientesDTO.setIDPrato_IngredientesDTO(IDPrato_IngredientesVIEW);
-        objIngredientesDTO.setNome_IngredientesDTO(Nome_IngredientesVIEW);
-        objIngredientesDTO.setUnidadeMedida_IngredientesDTO(UnidadeMedida_IngredientesVIEW);
-        
-        IngredientesDAO objIngredientesDAO = new IngredientesDAO();
-        objIngredientesDAO.cadastrarIngrediente(objIngredientesDTO);
+        cadastrarIngredientes();
     }//GEN-LAST:event_btnEnviar_IngredientesActionPerformed
 
     private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
@@ -300,4 +280,24 @@ public class frmIngredientesVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField jtxNome_Ingredientes;
     private javax.swing.JTextField jtxUnidadeMedida_Ingredientes;
     // End of variables declaration//GEN-END:variables
+
+    private void cadastrarIngredientes() {
+        String Nome_IngredientesVIEW, UnidadeMedida_IngredientesVIEW;
+        int IDPrato_IngredientesVIEW, IDBebida_IngredientesVIEW;
+        
+        Nome_IngredientesVIEW = jtxNome_Ingredientes.getText();
+        UnidadeMedida_IngredientesVIEW = jtxUnidadeMedida_Ingredientes.getText();
+        IDPrato_IngredientesVIEW = Integer.parseInt(jtxIDPrato_Ingredientes.getText());
+        IDBebida_IngredientesVIEW = Integer.parseInt(jtxIDBebida_Ingredientes.getText());
+        
+        IngredientesDTO objIngredientesDTO = new IngredientesDTO();
+        
+        objIngredientesDTO.setIDBebida_IngredientesDTO(IDBebida_IngredientesVIEW);
+        objIngredientesDTO.setIDPrato_IngredientesDTO(IDPrato_IngredientesVIEW);
+        objIngredientesDTO.setNome_IngredientesDTO(Nome_IngredientesVIEW);
+        objIngredientesDTO.setUnidadeMedida_IngredientesDTO(UnidadeMedida_IngredientesVIEW);
+        
+        IngredientesDAO objIngredientesDAO = new IngredientesDAO();
+        objIngredientesDAO.cadastrarIngrediente(objIngredientesDTO);
+    }
 }

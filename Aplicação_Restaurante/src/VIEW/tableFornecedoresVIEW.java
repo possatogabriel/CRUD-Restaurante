@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
+
+import DAO.FornecedoresDAO;
+import DTO.FornecedoresDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CAMARGO
+ * @author Gabriel Possato
  */
+
 public class tableFornecedoresVIEW extends javax.swing.JFrame {
 
     /**
@@ -105,7 +108,7 @@ public class tableFornecedoresVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresFornecedores();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +157,30 @@ public class tableFornecedoresVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaFornecedores;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresFornecedores(){
+        try {
+            FornecedoresDAO objFornecedoresDAO = new FornecedoresDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaFornecedores.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<FornecedoresDTO> lista = objFornecedoresDAO.listarFornecedores();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getNome_FornecedoresDTO(),
+                    lista.get(num).getCNPJ_FornecedoresDTO(),
+                    lista.get(num).getMaterial_FornecedoresDTO(),
+                    lista.get(num).getEmail_FornecedoresDTO(),
+                    lista.get(num).getTelefone_FornecedoresDTO(),
+                    lista.get(num).getValor_FornecedoresDTO()
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableFornecedoresVIEW': " + erro);
+        }
+    }
 }

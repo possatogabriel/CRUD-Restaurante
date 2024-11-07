@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
 
 /**
  *
- * @author gabri
+ * @author Gabriel Possato
  */
+
 public class LoginVIEW extends javax.swing.JFrame {
 
     /**
@@ -187,61 +184,51 @@ public class LoginVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-        
         dispose();
         new frmClienteVIEW().setVisible(true);
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnEntregasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntregasActionPerformed
-        
         dispose();
         new frmEntregasVIEW().setVisible(true);
     }//GEN-LAST:event_btnEntregasActionPerformed
 
     private void btnFiliaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiliaisActionPerformed
-        
         dispose();
         new frmFilialVIEW().setVisible(true);
     }//GEN-LAST:event_btnFiliaisActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
-        
         dispose();
         new frmEstoqueVIEW().setVisible(true);
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
-        
         dispose();
         new frmPedidosVIEW().setVisible(true);
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void btnIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngredientesActionPerformed
-        
         dispose();
         new frmIngredientesVIEW().setVisible(true);
     }//GEN-LAST:event_btnIngredientesActionPerformed
 
     private void btnFuncionáriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionáriosActionPerformed
-        
         dispose();
         new frmFuncionáriosVIEW().setVisible(true);
     }//GEN-LAST:event_btnFuncionáriosActionPerformed
 
     private void btnFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFornecedoresActionPerformed
-        
         dispose();
         new frmFornecedoresVIEW().setVisible(true);
     }//GEN-LAST:event_btnFornecedoresActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        
         dispose();
         new frmReservasVIEW().setVisible(true);
     }//GEN-LAST:event_btnReservasActionPerformed
 
     private void btnPratosBebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPratosBebidasActionPerformed
-        
         dispose();
         new frmPratosBebidasVIEW().setVisible(true);
     }//GEN-LAST:event_btnPratosBebidasActionPerformed

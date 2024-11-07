@@ -7,6 +7,7 @@ import DTO.FilialDTO;
  *
  * @author Gabriel Possato
  */
+
 public class frmFilialVIEW extends javax.swing.JFrame {
 
     /**
@@ -217,13 +218,11 @@ public class frmFilialVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxQntdMesas_FiliaisActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-                
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        
         jtxAvaliação_Filiais.setText("");
         jtxEmail_Filiais.setText("");
         jtxEndereço_Filiais.setText("");
@@ -232,24 +231,7 @@ public class frmFilialVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnEnviar_FiliaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_FiliaisActionPerformed
-        String Avaliação_FiliaisVIEW, Email_FiliaisVIEW, Endereço_FiliaisVIEW, Telefone_FiliaisVIEW;
-        int QntdMesas_FiliaisVIEW;
-
-        Avaliação_FiliaisVIEW = jtxAvaliação_Filiais.getText();
-        Email_FiliaisVIEW = jtxEmail_Filiais.getText();
-        Endereço_FiliaisVIEW = jtxEndereço_Filiais.getText();
-        Telefone_FiliaisVIEW = jtxTelefone_Filiais.getText();
-        QntdMesas_FiliaisVIEW = Integer.parseInt(jtxQntdMesas_Filiais.getText());
-
-        FilialDTO objFilialDTO = new FilialDTO();
-        objFilialDTO.setAvaliação_FiliaisDTO(Avaliação_FiliaisVIEW);
-        objFilialDTO.setEmail_FiliaisDTO(Email_FiliaisVIEW);
-        objFilialDTO.setEndereço_FiliaisDTO(Endereço_FiliaisVIEW);
-        objFilialDTO.setQtndMesas_FiliaisDTO(QntdMesas_FiliaisVIEW);
-        objFilialDTO.setTelefone_FiliaisDTO(Telefone_FiliaisVIEW);
-                                
-        FilialDAO objFilialDAO = new FilialDAO();
-        objFilialDAO.cadastrarFilial(objFilialDTO);
+        cadastrarFiliais();
     }//GEN-LAST:event_btnEnviar_FiliaisActionPerformed
 
     private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
@@ -309,4 +291,25 @@ public class frmFilialVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField jtxQntdMesas_Filiais;
     private javax.swing.JFormattedTextField jtxTelefone_Filiais;
     // End of variables declaration//GEN-END:variables
+
+    private void cadastrarFiliais() {
+        String Avaliação_FiliaisVIEW, Email_FiliaisVIEW, Endereço_FiliaisVIEW, Telefone_FiliaisVIEW;
+        int QntdMesas_FiliaisVIEW;
+
+        Avaliação_FiliaisVIEW = jtxAvaliação_Filiais.getText();
+        Email_FiliaisVIEW = jtxEmail_Filiais.getText();
+        Endereço_FiliaisVIEW = jtxEndereço_Filiais.getText();
+        Telefone_FiliaisVIEW = jtxTelefone_Filiais.getText();
+        QntdMesas_FiliaisVIEW = Integer.parseInt(jtxQntdMesas_Filiais.getText());
+
+        FilialDTO objFilialDTO = new FilialDTO();
+        objFilialDTO.setAvaliação_FiliaisDTO(Avaliação_FiliaisVIEW);
+        objFilialDTO.setEmail_FiliaisDTO(Email_FiliaisVIEW);
+        objFilialDTO.setEndereço_FiliaisDTO(Endereço_FiliaisVIEW);
+        objFilialDTO.setQtndMesas_FiliaisDTO(QntdMesas_FiliaisVIEW);
+        objFilialDTO.setTelefone_FiliaisDTO(Telefone_FiliaisVIEW);
+                                
+        FilialDAO objFilialDAO = new FilialDAO();
+        objFilialDAO.cadastrarFilial(objFilialDTO);
+    }
 }

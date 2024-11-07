@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
+
+import DAO.EstoqueDAO;
+import DTO.EstoqueDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CAMARGO
+ * @author Gabriel Possato
  */
+
 public class tableEstoqueVIEW extends javax.swing.JFrame {
 
     /**
@@ -105,7 +108,7 @@ public class tableEstoqueVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresEstoque();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +157,27 @@ public class tableEstoqueVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaEstoque;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresEstoque(){
+        try {
+            EstoqueDAO objEstoqueDAO = new EstoqueDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaEstoque.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<EstoqueDTO> lista = objEstoqueDAO.listarCliente();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getIDFornecedor_EstoqueDTO(),
+                    lista.get(num).getQntd_EstoqueDTO(),
+                    lista.get(num).getIDFilial_EstoqueDTO(),
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableEstoqueVIEW': " + erro);
+        }
+    }
 }

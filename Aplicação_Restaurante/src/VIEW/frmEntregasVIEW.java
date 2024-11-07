@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
 
 import DAO.EntregasDAO;
@@ -11,6 +7,7 @@ import DTO.EntregasDTO;
  *
  * @author Gabriel Possato
  */
+
 public class frmEntregasVIEW extends javax.swing.JFrame {
 
     /**
@@ -197,33 +194,18 @@ public class frmEntregasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxDataEntrega_EntregasActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-                
         dispose();
         new LoginVIEW().setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        
         jtxDataEntrega_Entregas.setText("");
         jtxEndereço_Entregas.setText("");
         jtxIDPedido_Entregas.setText("");
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnEnviar_EntregasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar_EntregasActionPerformed
-        String DataEntrega_EntregasVIEW, Endereço_EntregasVIEW;
-        int IDPedido_EntregasVIEW;
-        
-        DataEntrega_EntregasVIEW = jtxDataEntrega_Entregas.getText();
-        Endereço_EntregasVIEW = jtxEndereço_Entregas.getText();
-        IDPedido_EntregasVIEW = Integer.parseInt(jtxIDPedido_Entregas.getText());
-        
-        EntregasDTO objEntregasDTO = new EntregasDTO();
-        objEntregasDTO.setDataEntrega_EntregasDTO(DataEntrega_EntregasVIEW);
-        objEntregasDTO.setEndereço_EntregasDTO(Endereço_EntregasVIEW);
-        objEntregasDTO.setIDPedido_EntregasDTO(IDPedido_EntregasVIEW); 
-        
-        EntregasDAO objEntregasDAO = new EntregasDAO();
-        objEntregasDAO.cadastrarEntregas(objEntregasDTO);
+        cadastrarEntregas();
     }//GEN-LAST:event_btnEnviar_EntregasActionPerformed
 
     private void btnVerTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTabelaActionPerformed
@@ -278,4 +260,21 @@ public class frmEntregasVIEW extends javax.swing.JFrame {
     private javax.swing.JTextField jtxEndereço_Entregas;
     private javax.swing.JTextField jtxIDPedido_Entregas;
     // End of variables declaration//GEN-END:variables
+    
+    private void cadastrarEntregas() {
+        String DataEntrega_EntregasVIEW, Endereço_EntregasVIEW;
+        int IDPedido_EntregasVIEW;
+        
+        DataEntrega_EntregasVIEW = jtxDataEntrega_Entregas.getText();
+        Endereço_EntregasVIEW = jtxEndereço_Entregas.getText();
+        IDPedido_EntregasVIEW = Integer.parseInt(jtxIDPedido_Entregas.getText());
+        
+        EntregasDTO objEntregasDTO = new EntregasDTO();
+        objEntregasDTO.setDataEntrega_EntregasDTO(DataEntrega_EntregasVIEW);
+        objEntregasDTO.setEndereço_EntregasDTO(Endereço_EntregasVIEW);
+        objEntregasDTO.setIDPedido_EntregasDTO(IDPedido_EntregasVIEW); 
+        
+        EntregasDAO objEntregasDAO = new EntregasDAO();
+        objEntregasDAO.cadastrarEntregas(objEntregasDTO);
+    }
 }

@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
+
+import DAO.EntregasDAO;
+import DTO.EntregasDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CAMARGO
+ * @author Gabriel Possato
  */
+
 public class tableEntregasVIEW extends javax.swing.JFrame {
 
     /**
@@ -105,7 +108,7 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresEntregas();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +157,27 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaEntregas;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresEntregas(){
+        try {
+            EntregasDAO objEntregasDAO = new EntregasDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaEntregas.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<EntregasDTO> lista = objEntregasDAO.listarEntregas();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getEndereço_EntregasDTO(),
+                    lista.get(num).getIDPedido_EntregasDTO(),
+                    lista.get(num).getDataEntrega_EntregasDTO(),
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableEntregasVIEW': " + erro);
+        }
+    }
 }

@@ -4,7 +4,9 @@ package DTO;
  *
  * @author Gabriel Possato
  */
+
 public class BebidasDTO {
+    
     private String Nome_BebidasDTO, Descrição_BebidasDTO, Valor_BebidasDTO;
 
     public String getNome_BebidasDTO() {

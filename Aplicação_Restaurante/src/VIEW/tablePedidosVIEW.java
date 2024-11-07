@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package VIEW;
+
+import DAO.PedidosDAO;
+import DTO.PedidosDTO;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CAMARGO
+ * @author Gabriel Possato
  */
+
 public class tablePedidosVIEW extends javax.swing.JFrame {
 
     /**
@@ -105,7 +108,7 @@ public class tablePedidosVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        listarValoresFilial();
+        listarValoresPedidos();
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -154,4 +157,31 @@ public class tablePedidosVIEW extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaPedidos;
     // End of variables declaration//GEN-END:variables
+
+    private void listarValoresPedidos(){
+        try {
+            PedidosDAO objPedidosDAO = new PedidosDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaPedidos.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<PedidosDTO> lista = objPedidosDAO.listarPedidos();
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getIDCliente_PedidosDTO(),
+                    lista.get(num).getIDPrato_PedidosDTO(),
+                    lista.get(num).getIDBebida_PedidosDTO(),
+                    lista.get(num).getValor_PedidosDTO(),
+                    lista.get(num).getPagamento_PedidosDTO(),
+                    lista.get(num).getEndereço_PedidosDTO(),
+                    lista.get(num).getDataPedido_PedidosDTO()
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tablePedidosVIEW': " + erro);
+        }
+    }
 }

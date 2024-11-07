@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Gabriel Possato
  */
+
 public class tableClienteVIEW extends javax.swing.JFrame {
 
     /**

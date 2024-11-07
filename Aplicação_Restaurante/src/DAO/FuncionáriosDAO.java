@@ -1,14 +1,16 @@
 package DAO;
 
 import java.sql.*;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import DTO.FuncionáriosDTO;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriel Possato
  */
+
 public class FuncionáriosDAO {
     
     Connection conn;
@@ -17,7 +19,7 @@ public class FuncionáriosDAO {
     ArrayList<FuncionáriosDTO> lista = new ArrayList<>();
     
     public void cadastrarFuncionário(FuncionáriosDTO objFuncionáriosDTO) {
-        String sql = "INSERT INTO Funcionarios (CPF, Nome, Sexo, Idade, Endereco, Email, Telefone, ID_filial, Cargo, Data_contatacao) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Funcionarios (CPF, Nome, Sexo, Idade, Endereco, Email, Telefone, ID_filial, Cargo, Data_contratacao) VALUES (?,?,?,?,?,?,?,?,?,?)";
         
         conn = new ConexãoDAO().connectorDB();
         

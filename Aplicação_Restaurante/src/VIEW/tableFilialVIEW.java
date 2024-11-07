@@ -8,8 +8,9 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author CAMARGO
+ * @author Gabriel Possato
  */
+
 public class tableFilialVIEW extends javax.swing.JFrame {
 
     /**
@@ -181,6 +182,5 @@ public class tableFilialVIEW extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableFilialVIEW': " + erro);
         }
     }
-
 }
 
