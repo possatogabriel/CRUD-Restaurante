@@ -38,7 +38,7 @@ public class EstoqueDAO {
         }
     }
     
-    public ArrayList<EstoqueDTO> listarCliente() {
+    public ArrayList<EstoqueDTO> listarEstoque() {
         String sql = "SELECT * FROM Estoque";
         
         conn = new ConexãoDAO().connectorDB();
@@ -60,6 +60,33 @@ public class EstoqueDAO {
         
         catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'EstoqueDAO' - 'listarEstoque': " + erro);
+        }
+        
+        return lista;
+    }
+    
+    public ArrayList<EstoqueDTO> pesquisarEstoque(String valor, String item) {
+        String sql = "SELECT * FROM Estoque where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                EstoqueDTO objEstoqueDTO = new EstoqueDTO();
+                objEstoqueDTO.setIDFornecedor_EstoqueDTO(rs.getInt("ID_fornecedor"));
+                objEstoqueDTO.setQntd_EstoqueDTO(rs.getInt("Quantidade"));
+                objEstoqueDTO.setIDFilial_EstoqueDTO(rs.getInt("ID_filial"));
+                
+                lista.add(objEstoqueDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'EstoqueDAO' - 'pesquisarEstoque': " + erro);
         }
         
         return lista;

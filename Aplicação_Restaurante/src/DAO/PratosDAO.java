@@ -65,4 +65,31 @@ public class PratosDAO {
         
         return lista;
     }
+    
+    public ArrayList<PratosDTO> pesquisarPratos(String valor, String item) {
+        String sql = "SELECT * FROM Pratos where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                PratosDTO objPratosDTO = new PratosDTO();
+                objPratosDTO.setNome_PratosDTO(rs.getString("Nome"));
+                objPratosDTO.setDescrição_PratosDTO(rs.getString("Descricao"));
+                objPratosDTO.setValor_PratosDTO(rs.getString("Valor"));
+                
+                lista.add(objPratosDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'PratosDAO' - 'pesquisarPratos': " + erro);
+        }
+        
+        return lista;
+    }
 }

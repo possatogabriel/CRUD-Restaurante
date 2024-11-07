@@ -68,4 +68,33 @@ public class FilialDAO {
         
         return lista;
     }
+    
+    public ArrayList<FilialDTO> pesquisarFilial(String valor, String item) {
+        String sql = "SELECT * FROM Filiais where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                FilialDTO objFilialDTO = new FilialDTO();
+                objFilialDTO.setEndereço_FiliaisDTO(rs.getString("Endereco"));
+                objFilialDTO.setEmail_FiliaisDTO(rs.getString("Email"));
+                objFilialDTO.setTelefone_FiliaisDTO(rs.getString("Telefone"));
+                objFilialDTO.setQtndMesas_FiliaisDTO(rs.getInt("Quant_mesas"));
+                objFilialDTO.setAvaliação_FiliaisDTO(rs.getString("Avaliacao"));
+                
+                lista.add(objFilialDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'FilialDAO' - 'pesquisarFilial': " + erro);
+        }
+        
+        return lista;
+    }
 }

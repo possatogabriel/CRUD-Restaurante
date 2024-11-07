@@ -35,7 +35,7 @@ public class tableFilialVIEW extends javax.swing.JFrame {
         btnListar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         jtxPesquisar = new javax.swing.JTextField();
-        boxFiliais = new javax.swing.JComboBox<>();
+        ComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +77,7 @@ public class tableFilialVIEW extends javax.swing.JFrame {
             }
         });
 
-        boxFiliais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Endereco", "Email", "Telefone", "Quant_mesas", "Avaliacao" }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Endereco", "Email", "Telefone", "Quant_mesas", "Avaliacao" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +92,7 @@ public class tableFilialVIEW extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(btnListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(boxFiliais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(201, 201, 201)
@@ -110,7 +110,7 @@ public class tableFilialVIEW extends javax.swing.JFrame {
                     .addComponent(btnListar)
                     .addComponent(btnPesquisar)
                     .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boxFiliais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -122,7 +122,12 @@ public class tableFilialVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        String Tipo, Valor;
+        
+        Tipo = ComboBox.getSelectedItem().toString();
+        Valor = jtxPesquisar.getText();
+        
+        pesquisarValoresFilial(Valor, Tipo);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
@@ -161,8 +166,8 @@ public class tableFilialVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JLabel TÍTULO;
-    private javax.swing.JComboBox<String> boxFiliais;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
@@ -192,6 +197,31 @@ public class tableFilialVIEW extends javax.swing.JFrame {
         
         catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableFilialVIEW': " + erro);
+        }
+    }
+    
+    private void pesquisarValoresFilial(String valor, String item){
+        try {
+            FilialDAO objFilialDAO = new FilialDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaFiliais.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<FilialDTO> lista = objFilialDAO.pesquisarFilial(valor, item);
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getEndereço_FiliaisDTO(),
+                    lista.get(num).getEmail_FiliaisDTO(),
+                    lista.get(num).getTelefone_FiliaisDTO(),
+                    lista.get(num).getQtndMesas_FiliaisDTO(),
+                    lista.get(num).getAvaliação_FiliaisDTO()
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableFilialVIEW - pesquisarValoresFilial': " + erro);
         }
     }
 }

@@ -69,4 +69,33 @@ public class ReservasDAO {
         
         return lista;
     }
+    
+    public ArrayList<ReservasDTO> pesquisarReservas(String valor, String item) {
+        String sql = "SELECT * FROM Reservas where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                ReservasDTO objReservasDTO = new ReservasDTO();
+                objReservasDTO.setDataReserva_Reservas(rs.getString("Data_reserva"));
+                objReservasDTO.setIDCliente_Reservas(rs.getInt("ID_cliente"));
+                objReservasDTO.setMesa_Reservas(rs.getString("Mesa"));
+                objReservasDTO.setIDFilial_Reservas(rs.getInt("ID_filial"));
+                objReservasDTO.setCapacidade_Reservas(rs.getInt("Capacidade"));
+                
+                lista.add(objReservasDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'ReservasDAO' - 'pesquisarReservas': " + erro);
+        }
+        
+        return lista;
+    }
 }

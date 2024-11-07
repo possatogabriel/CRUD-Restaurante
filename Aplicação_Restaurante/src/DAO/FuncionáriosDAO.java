@@ -77,4 +77,37 @@ public class FuncionáriosDAO {
         
         return lista;
     }
+    
+    public ArrayList<FuncionáriosDTO> pesquisarFuncionários(String valor, String item) {
+        String sql = "SELECT * FROM Funcionarios where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                FuncionáriosDTO objFuncionáriosDTO = new FuncionáriosDTO();
+                objFuncionáriosDTO.setCPF_FuncionáriosDTO(rs.getString("CPF"));
+                objFuncionáriosDTO.setNome_FuncionáriosDTO(rs.getString("Nome"));
+                objFuncionáriosDTO.setSexo_FuncionáriosDTO(rs.getString("Sexo"));
+                objFuncionáriosDTO.setIdade_FuncionáriosDTO(rs.getInt("Idade"));
+                objFuncionáriosDTO.setEndereço_FuncionáriosDTO(rs.getString("Endereco"));
+                objFuncionáriosDTO.setEmail_FuncionáriosDTO(rs.getString("Email"));
+                objFuncionáriosDTO.setIDFilial_FuncionáriosDTO(rs.getInt("ID_filial"));
+                objFuncionáriosDTO.setCargo_FuncionáriosDTO(rs.getString("CPF"));
+                objFuncionáriosDTO.setDataContratação_FuncionáriosDTO(rs.getString("Data_contratacao"));
+                
+                lista.add(objFuncionáriosDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'FuncionáriosDAO' - 'pesquisarFuncionários': " + erro);
+        }
+        
+        return lista;
+    }
 }

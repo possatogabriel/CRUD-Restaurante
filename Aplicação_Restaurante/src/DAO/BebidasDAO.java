@@ -37,7 +37,7 @@ public class BebidasDAO {
         }
     }
     
-        public ArrayList<BebidasDTO> listarBebidas() {
+    public ArrayList<BebidasDTO> listarBebidas() {
         String sql = "SELECT * FROM Bebidas";
         
         conn = new ConexãoDAO().connectorDB();
@@ -59,6 +59,33 @@ public class BebidasDAO {
         
         catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'BebidasDAO' - 'listarBebidas': " + erro);
+        }
+        
+        return lista;
+    }
+    
+    public ArrayList<BebidasDTO> pesquisarBebidas(String valor, String item) {
+        String sql = "SELECT * FROM Bebidas where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                BebidasDTO objBebidasDTO = new BebidasDTO();
+                objBebidasDTO.setNome_BebidasDTO(rs.getString("Nome"));
+                objBebidasDTO.setDescrição_BebidasDTO(rs.getString("Descricao"));
+                objBebidasDTO.setValor_BebidasDTO(rs.getString("Valor"));
+                
+                lista.add(objBebidasDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'BebidasDAO' - 'pesquisarBebidas': " + erro);
         }
         
         return lista;

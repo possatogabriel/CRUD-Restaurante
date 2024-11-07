@@ -74,4 +74,35 @@ public class ClienteDAO {
         
         return lista;
     }
+    
+    public ArrayList<ClienteDTO> pesquisarCliente(String valor, String item){
+        String sql = "SELECT * FROM Clientes where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                ClienteDTO objClienteDTO = new ClienteDTO();
+                objClienteDTO.setCPF_ClienteDTO(rs.getString("CPF"));
+                objClienteDTO.setNome_ClienteDTO(rs.getString("Nome"));
+                objClienteDTO.setSexo_ClienteDTO(rs.getString("Sexo"));
+                objClienteDTO.setIdade_ClienteDTO(rs.getInt("Idade"));
+                objClienteDTO.setEndereço_ClienteDTO(rs.getString("Endereco"));
+                objClienteDTO.setEmail_ClienteDTO(rs.getString("Email"));
+                objClienteDTO.setTelefone_ClienteDTO(rs.getString("Telefone"));
+                objClienteDTO.setDataCadastro_ClienteDTO(rs.getString("Data_cadastro"));
+                
+                lista.add(objClienteDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'ClienteDAO' - 'pesquisarCliente': " + erro);
+        }
+        
+        return lista;
+    }
 }

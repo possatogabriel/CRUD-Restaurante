@@ -67,4 +67,32 @@ public class IngredientesDAO {
         
         return lista;
     }
+    
+    public ArrayList<IngredientesDTO> pesquisarIngredientes(String valor, String item) {
+        String sql = "SELECT * FROM Ingredientes where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                IngredientesDTO objIngredientesDTO = new IngredientesDTO();
+                objIngredientesDTO.setNome_IngredientesDTO(rs.getString("Nome"));
+                objIngredientesDTO.setUnidadeMedida_IngredientesDTO(rs.getString("Unidade_Medida"));
+                objIngredientesDTO.setIDPrato_IngredientesDTO(rs.getInt("ID_prato"));
+                objIngredientesDTO.setIDBebida_IngredientesDTO(rs.getInt("ID_bebida"));
+                
+                lista.add(objIngredientesDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'IngredientesDAO' - 'pesquisarIngredientes': " + erro);
+        }
+        
+        return lista;
+    }
 }

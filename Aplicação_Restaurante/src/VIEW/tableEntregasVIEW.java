@@ -35,7 +35,7 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
         btnListar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         jtxPesquisar = new javax.swing.JTextField();
-        boxEntregas = new javax.swing.JComboBox<>();
+        ComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +77,7 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
             }
         });
 
-        boxEntregas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Endereco", "ID_pedido", "Data_entrega" }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Endereco", "ID_pedido", "Data_entrega" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +92,7 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(btnListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(boxEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(197, 197, 197)
@@ -110,7 +110,7 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
                     .addComponent(btnListar)
                     .addComponent(btnPesquisar)
                     .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boxEntregas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -122,7 +122,12 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        String Tipo, Valor;
+        
+        Tipo = ComboBox.getSelectedItem().toString();
+        Valor = jtxPesquisar.getText();
+        
+        pesquisarValoresEntregas(Valor, Tipo);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
@@ -161,8 +166,8 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JLabel TÍTULO;
-    private javax.swing.JComboBox<String> boxEntregas;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
@@ -190,6 +195,29 @@ public class tableEntregasVIEW extends javax.swing.JFrame {
         
         catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableEntregasVIEW': " + erro);
+        }
+    }
+    
+    private void pesquisarValoresEntregas(String valor, String item){
+        try {
+            EntregasDAO objEntregasDAO = new EntregasDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaEntregas.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<EntregasDTO> lista = objEntregasDAO.pesquisarEntregas(valor, item);
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getEndereço_EntregasDTO(),
+                    lista.get(num).getIDPedido_EntregasDTO(),
+                    lista.get(num).getDataEntrega_EntregasDTO(),
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableEntregasVIEW - pesquisarValoresEntregas': " + erro);
         }
     }
 }

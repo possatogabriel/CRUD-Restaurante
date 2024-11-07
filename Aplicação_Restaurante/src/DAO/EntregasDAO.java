@@ -64,4 +64,31 @@ public class EntregasDAO {
         
         return lista;
     }
+    
+    public ArrayList<EntregasDTO> pesquisarEntregas(String valor, String item) {
+        String sql = "SELECT * FROM Entregas where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                EntregasDTO objEntregasDTO = new EntregasDTO();
+                objEntregasDTO.setEndereço_EntregasDTO(rs.getString("Endereco"));
+                objEntregasDTO.setIDPedido_EntregasDTO(rs.getInt("ID_pedido"));
+                objEntregasDTO.setDataEntrega_EntregasDTO(rs.getString("Data_entrega"));
+                
+                lista.add(objEntregasDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'EntregasDAO' - 'pesquisarEntregas': " + erro);
+        }
+        
+        return lista;
+    }
 }

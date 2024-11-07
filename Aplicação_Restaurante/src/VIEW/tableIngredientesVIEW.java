@@ -35,7 +35,7 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
         btnListar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         jtxPesquisar = new javax.swing.JTextField();
-        boxIngredientes = new javax.swing.JComboBox<>();
+        ComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +77,7 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
             }
         });
 
-        boxIngredientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome", "Unidade_Medida", "ID_prato", "ID_bebida" }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome", "Unidade_Medida", "ID_prato", "ID_bebida" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +92,7 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(btnListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(boxIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(193, 193, 193)
@@ -110,7 +110,7 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
                     .addComponent(btnListar)
                     .addComponent(btnPesquisar)
                     .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boxIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -122,7 +122,12 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        String Tipo, Valor;
+        
+        Tipo = ComboBox.getSelectedItem().toString();
+        Valor = jtxPesquisar.getText();
+        
+        pesquisarValoresIngredientes(Valor, Tipo);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
@@ -161,8 +166,8 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JLabel TÍTULO;
-    private javax.swing.JComboBox<String> boxIngredientes;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
@@ -191,6 +196,30 @@ public class tableIngredientesVIEW extends javax.swing.JFrame {
         
         catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableIngredientesVIEW': " + erro);
+        }
+    }
+    
+    private void pesquisarValoresIngredientes(String valor, String item){
+        try {
+            IngredientesDAO objIngredientesDAO = new IngredientesDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaIngredientes.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<IngredientesDTO> lista = objIngredientesDAO.pesquisarIngredientes(valor, item);
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getNome_IngredientesDTO(),
+                    lista.get(num).getUnidadeMedida_IngredientesDTO(),
+                    lista.get(num).getIDPrato_IngredientesDTO(),
+                    lista.get(num).getIDBebida_IngredientesDTO()
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableIngredientesVIEW - pesquisarValoresIngredientes': " + erro);
         }
     }
 }

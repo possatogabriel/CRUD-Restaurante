@@ -35,7 +35,7 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
         btnListar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         jtxPesquisar = new javax.swing.JTextField();
-        boxFuncionários = new javax.swing.JComboBox<>();
+        ComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +77,7 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
             }
         });
 
-        boxFuncionários.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CPF", "Nome", "Sexo", "Idade", "Endereco", "Email", "Telefone", "ID_filial", "Cargo", "Data_contratacao" }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CPF", "Nome", "Sexo", "Idade", "Endereco", "Email", "Telefone", "ID_filial", "Cargo", "Data_contratacao" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +92,7 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(btnListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(boxFuncionários, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(195, 195, 195)
@@ -110,7 +110,7 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
                     .addComponent(btnListar)
                     .addComponent(btnPesquisar)
                     .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boxFuncionários, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -122,7 +122,12 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        String Tipo, Valor;
+        
+        Tipo = ComboBox.getSelectedItem().toString();
+        Valor = jtxPesquisar.getText();
+        
+        pesquisarValoresFuncionários(Valor, Tipo);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
@@ -161,8 +166,8 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JLabel TÍTULO;
-    private javax.swing.JComboBox<String> boxFuncionários;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
@@ -197,6 +202,36 @@ public class tableFuncionáriosVIEW extends javax.swing.JFrame {
         
         catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableFuncionáriosVIEW': " + erro);
+        }
+    }
+    
+    private void pesquisarValoresFuncionários(String valor, String item){
+        try {
+            FuncionáriosDAO objFuncionáriosDAO = new FuncionáriosDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaFuncionários.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<FuncionáriosDTO> lista = objFuncionáriosDAO.pesquisarFuncionários(valor, item);
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getCPF_FuncionáriosDTO(),
+                    lista.get(num).getNome_FuncionáriosDTO(),
+                    lista.get(num).getSexo_FuncionáriosDTO(),
+                    lista.get(num).getIdade_FuncionáriosDTO(),
+                    lista.get(num).getEndereço_FuncionáriosDTO(),
+                    lista.get(num).getEmail_FuncionáriosDTO(),
+                    lista.get(num).getTelefone_FuncionáriosDTO(),
+                    lista.get(num).getIDFilial_FuncionáriosDTO(),
+                    lista.get(num).getCargo_FuncionáriosDTO(),
+                    lista.get(num).getDataContratação_FuncionáriosDTO()
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableFuncionáriosVIEW - pesquisarValoresFuncionários': " + erro);
         }
     }
 }

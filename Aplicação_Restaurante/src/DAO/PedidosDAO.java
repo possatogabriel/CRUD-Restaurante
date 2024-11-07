@@ -73,4 +73,35 @@ public class PedidosDAO {
         
         return lista;
     }
+    
+    public ArrayList<PedidosDTO> pesquisarPedidos(String valor, String item) {
+        String sql = "SELECT * FROM Pedidos where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                PedidosDTO objPedidosDTO = new PedidosDTO();
+                objPedidosDTO.setIDCliente_PedidosDTO(rs.getInt("ID_cliente"));
+                objPedidosDTO.setIDPrato_PedidosDTO(rs.getInt("ID_prato"));
+                objPedidosDTO.setIDBebida_PedidosDTO(rs.getInt("ID_bebida"));
+                objPedidosDTO.setValor_PedidosDTO(rs.getString("Valor"));
+                objPedidosDTO.setPagamento_PedidosDTO(rs.getString("Tipo_pagamento"));
+                objPedidosDTO.setEndereço_PedidosDTO(rs.getString("Endereco"));
+                objPedidosDTO.setDataPedido_PedidosDTO(rs.getString("Data_pedido"));
+                
+                lista.add(objPedidosDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'PedidosDAO' - 'pesquisarPedidos': " + erro);
+        }
+        
+        return lista;
+    }
 }

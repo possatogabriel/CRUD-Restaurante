@@ -34,7 +34,7 @@ public class tableClienteVIEW extends javax.swing.JFrame {
         btnListar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         jtxPesquisar = new javax.swing.JTextField();
-        boxClientes = new javax.swing.JComboBox<>();
+        ComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,7 +76,7 @@ public class tableClienteVIEW extends javax.swing.JFrame {
             }
         });
 
-        boxClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CPF", "Nome", "Sexo", "Idade", "Endereco", "Email", "Telefone", "Data_cadastro" }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CPF", "Nome", "Sexo", "Idade", "Endereco", "Email", "Telefone", "Data_cadastro" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,7 +91,7 @@ public class tableClienteVIEW extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(btnListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(boxClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(213, 213, 213)
@@ -109,7 +109,7 @@ public class tableClienteVIEW extends javax.swing.JFrame {
                     .addComponent(btnListar)
                     .addComponent(btnPesquisar)
                     .addComponent(jtxPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boxClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -121,7 +121,12 @@ public class tableClienteVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        // TODO add your handling code here:
+        String Tipo, Valor;
+        
+        Tipo = ComboBox.getSelectedItem().toString();
+        Valor = jtxPesquisar.getText();
+        
+        pesquisarValoresCliente(Valor, Tipo);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
@@ -160,8 +165,8 @@ public class tableClienteVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JLabel TÍTULO;
-    private javax.swing.JComboBox<String> boxClientes;
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
@@ -193,7 +198,35 @@ public class tableClienteVIEW extends javax.swing.JFrame {
         }
         
         catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableClienteVIEW': " + erro);
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableClienteVIEW - listarValoresCliente': " + erro);
+        }
+    }
+    
+    private void pesquisarValoresCliente(String valor, String item){
+        try {
+            ClienteDAO objClienteDAO = new ClienteDAO();
+            
+            DefaultTableModel model = (DefaultTableModel) tabelaClientes.getModel();
+            model.setNumRows(0);
+            
+            ArrayList<ClienteDTO> lista = objClienteDAO.pesquisarCliente(valor, item);
+            
+            for (int num = 0; num < lista.size(); num ++) {
+                model.addRow(new Object [] {
+                    lista.get(num).getCPF_ClienteDTO(),
+                    lista.get(num).getNome_ClienteDTO(),
+                    lista.get(num).getSexo_ClienteDTO(),
+                    lista.get(num).getIdade_ClienteDTO(),
+                    lista.get(num).getEndereço_ClienteDTO(),
+                    lista.get(num).getEmail_ClienteDTO(),
+                    lista.get(num).getTelefone_ClienteDTO(),
+                    lista.get(num).getDataCadastro_ClienteDTO()
+                });         
+            }
+        }
+        
+        catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'tableClienteVIEW - pesquisarValoresCliente': " + erro);
         }
     }
 }

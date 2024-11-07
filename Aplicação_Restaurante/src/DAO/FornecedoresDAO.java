@@ -70,4 +70,34 @@ public class FornecedoresDAO {
         
         return lista;
     }
+    
+    public ArrayList<FornecedoresDTO> pesquisarFornecedores(String valor, String item) {
+        String sql = "SELECT * FROM Fornecedores where " + item + " like '%" + valor + "%'";
+        
+        conn = new ConexãoDAO().connectorDB();
+        
+        try {
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while (rs.next()){
+                FornecedoresDTO objFornecedoresDTO = new FornecedoresDTO();
+                objFornecedoresDTO.setNome_FornecedoresDTO(rs.getString("Nome"));
+                objFornecedoresDTO.setCNPJ_FornecedoresDTO(rs.getString("CNPJ"));
+                objFornecedoresDTO.setMaterial_FornecedoresDTO(rs.getString("Tipo_material"));
+                objFornecedoresDTO.setEmail_FornecedoresDTO(rs.getString("Email"));
+                objFornecedoresDTO.setTelefone_FornecedoresDTO(rs.getString("Telefone"));
+                objFornecedoresDTO.setValor_FornecedoresDTO(rs.getString("Valor_material"));
+                
+                lista.add(objFornecedoresDTO);
+            }
+            
+        } 
+        
+        catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro no arquivo 'FornecedoresDAO' - 'pesquisarFornecedores': " + erro);
+        }
+        
+        return lista;
+    }
 }
