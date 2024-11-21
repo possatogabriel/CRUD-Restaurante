@@ -1,42 +1,46 @@
-# Conexão por JDBC - Passo a Passo
+# CRUD Restaurante - Java com JDBC
 
-## Passo 1: CRIAÇÃO DO JAVA CLASS - ***"ConexãoDAO"***
+## Descrição
+Este projeto Java implementa um sistema de gerenciamento para um restaurante, permitindo a criação, leitura, atualização e deleção de dados relacionados a clientes, funcionários, pedidos, estoque, entre outros. O sistema utiliza JDBC para se conectar a um banco de dados SQL e realizar as operações CRUD.
 
-## Passo 2: IMPORT DE BIBLIOTECAS NECESSÁRIAS
+## Tecnologias Utilizadas
+* **Java:** Linguagem de programação principal.
+* **JDBC:** API para conectar a bancos de dados relacionais.
+* **SQL:** Linguagem de consulta para bancos de dados.
 
-    import java.sql.Connection;
-    import java.sql.DriverManager;
-    import java.sql.SQLException;
+## Estrutura do Projeto
+* **src:** Contém o código fonte Java do projeto.
+    * **DAO:** Classes de acesso a dados (Data Access Object) para interagir com o banco de dados.
+    * **DTO:**  Classe de transporte de dados (Data Transfer Object) para uso em outras classes.
+    * **VIEW:** Classes responsáveis pela interface do usuário. 
+* **SQL:** Script SQL para criação e povoamento do banco de dados.
+* **driver:** Driver necessário para uso de JDBC no programa.
+* **build/classes:** Destino de arquivos de build do java.
 
-## Passo 2.1: IMPORT DE ***OPTIONPANE*** PARA MENSAGEM DE ERRO 
+## Como Executar o Projeto
+1. **Pré-requisitos:**
+    * **Java Development Kit (JDK):** Instale o JDK 17
+    * **Ferramenta de build:** Ant.
+    * **Banco de dados:** MySQL.
+    * **[Apache NetBeans(Optional)](https://netbeans.apache.org/front/main/index.html)**
 
-    import javax.swing.JOptionPane;
+2. **Clonar o repositório:**
+     Use o comando abaixo para clonar o repositorio na branch mais atual
+     ```terminal
+     git clone https://github.com/Adilson-kina/CRUD-Restaurante.git
+     ```
+3. **Executar o database**
+     ```terminal
+     mysql -u root -p < ./SQL/Banco_Finalizado.sql
+     ```
 
-## Passo 3: CRIAÇÃO DA CLASSE DE CONEXÃO
+4. **Compile e execute o projeto **
+     Use o ant para compilar o projeto
+     ```terminal
+     ant run
+     ```
+   **OU Abra o projeto no NetBeans, compile e rode**
 
-    public Connection connectorDB() {
-        Connection conn = null;
-
-        try {
-            String url = "jdbc:mysql://localhost:3306/BancoDeDados";
-            String user = "root";
-            String password = "";
-            
-            conn = DriverManager.getConnection(url, user, password); 
-        } 
-        
-        catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro encontrado no arquivo 'ConnectorDAO': " + erro.getMessage());
-        }
-
-        return conn;
-    }
-
-## Passo 4: ADICIONAR DRIVER DE CONEXÃO
-
-[SITE PARA DOWNLOAD DO DRIVER](https://dev.mysql.com/downloads/connector/j/)
-
-Após o download: ***Libraries > Add JAR/Folder > Selecionar arquivo .jar (Driver)***
 
 
 
