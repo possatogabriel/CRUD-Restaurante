@@ -1,14 +1,17 @@
-# CRUD Restaurante - Java com JDBC
+# 🍕 CRUD Restaurante
 
-## Descrição
-Este projeto Java implementa um sistema de gerenciamento para um restaurante, permitindo a criação, leitura, atualização e deleção de dados relacionados a clientes, funcionários, pedidos, estoque, entre outros. O sistema utiliza JDBC para se conectar a um banco de dados SQL e realizar as operações CRUD.
+<img src = "img/Demonstração1.gif" alt = "GIF da demonstração do projeto">
+<img src = "img/Demonstração.gif" alt = "GIF da demonstração do projeto"/>
 
-## Tecnologias Utilizadas
-* **Java:** Linguagem de programação principal.
-* **JDBC:** API para conectar a bancos de dados relacionais.
-* **SQL:** Linguagem de consulta para bancos de dados.
+## 📰 Descrição
+Projeto desenvolvido durante o último semestre do segundo ano do ensino técnico nas aulas de Desenvolvimento de Sistemas
 
-## Estrutura do Projeto
+Este projeto Java implementa um **sistema de gerenciamento para um restaurante**, permitindo a **criação, leitura, atualização e deleção de dados relacionados a clientes, funcionários, pedidos, estoque, entre outros.** O sistema utiliza JDBC para se conectar a um **banco de dados SQL e realizar as operações CRUD.**
+
+## 💻 Tecnologias Utilizadas
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" height = "40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" height = "40"/>
+
+## 🏭 Estrutura do Projeto
 * **src:** Contém o código fonte Java do projeto.
     * **DAO:** Classes de acesso a dados (Data Access Object) para interagir com o banco de dados.
     * **DTO:**  Classe de transporte de dados (Data Transfer Object) para uso em outras classes.
@@ -17,29 +20,29 @@ Este projeto Java implementa um sistema de gerenciamento para um restaurante, pe
 * **driver:** Driver necessário para uso de JDBC no programa.
 * **build/classes:** Destino de arquivos de build do java.
 
-## Como Executar o Projeto
-1. **Pré-requisitos:**
-    * **Java Development Kit (JDK):** Instale o JDK 17
-    * **Ferramenta de build:** Ant.
-    * **Banco de dados:** MySQL.
-    * **[Apache NetBeans(Optional)](https://netbeans.apache.org/front/main/index.html)**
+## 💾 Como executar o programa
 
-2. **Clonar o repositório:**
-     Use o comando abaixo para clonar o repositorio na branch mais atual
-     ```terminal
-     git clone https://github.com/Adilson-kina/CRUD-Restaurante.git
-     ```
-3. **Executar o database**
-     ```terminal
-     mysql -u root -p < ./SQL/Banco_Finalizado.sql
-     ```
+- Passo 1: Utilize a IDE da sua preferência (por exemplo, a IDE do <a href = "https://www.jetbrains.com/pt-br/idea/"> Intellij, </a> como mostrado no exemplo) 
 
-4. **Compile e execute o projeto **
-     Use o ant para compilar o projeto
-     ```terminal
-     ant run
-     ```
-   **OU Abra o projeto no NetBeans, compile e rode**
+- Passo 2: Clique em **"Setup JDK"**
+<img src = "img/Passo1.jpg">
+
+- Passo 3: Clique em **"Download JDK"**
+<img src = "img/Passo2.jpg">
+
+- Passo 4: Instale a versão mais recente
+<img src = "img/Passo3.jpg">
+
+- Passo 5: Após a instalação, procure a classe principal ***(Exercícios)*** e execute o programa
+<img src = "img/Passo4.jpg">
+
+## 🙋 Autores
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/136634888?v=4" width=80 alt = "Ícone da Foto de Perfil"> <br> <sub> Gabriel Possato </sub>](https://github.com/possatogabriel) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/134547014?v=4" width=80><br><sub> Adilson Kina </sub>](https://github.com/Adilson-kina) | |
+| :---: | :---: | :-
+
+<br>
+<br>
+<p align = "center"> <img alt="Badge de Concluído" src="https://img.shields.io/badge/STATUS%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-conclu%C3%ADdo-green?style=for-the-badge"> <br/> <img src = "img/etec1.png" height = "50" alt = "Logo da ETEC"> </p>
 
 
 
