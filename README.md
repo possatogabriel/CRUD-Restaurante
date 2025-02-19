@@ -37,8 +37,8 @@ Este projeto Java implementa um **sistema de gerenciamento para um restaurante**
 <img src = "img/Passo4.jpg">
 
 ## 🙋 Autores
-| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/136634888?v=4" width=80 alt = "Ícone da Foto de Perfil"> <br> <sub> Gabriel Possato </sub>](https://github.com/possatogabriel) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/134547014?v=4" width=80><br><sub> Adilson Kina </sub>](https://github.com/Adilson-kina) | |
-| :---: | :---: | :-
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/136634888?v=4" width=80 alt = "Ícone da Foto de Perfil"> <br> <sub> Gabriel Possato </sub>](https://github.com/possatogabriel) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/134547014?v=4" width=80><br><sub> Adilson Kina </sub>](https://github.com/Adilson-kina) | 
+| :---: | :---: |
 
 <br>
 <br>
