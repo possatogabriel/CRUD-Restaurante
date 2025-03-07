@@ -35,7 +35,7 @@ Este projeto Java implementa um **sistema de gerenciamento para um restaurante**
 - Passo 4: Instale a versão mais recente (ou, em caso de problemas, ***instale a versão demonstrada na imagem***)
 <img src = "img/Passo3.jpg">
 
-- Passo 5: Após a instalação, procure a classe principal ***(Main)*** e execute o programa
+- Passo 5: Após a instalação, procure a classe principal ***(LoginVIEW)*** e execute o programa
 <img src = "img/Passo4.jpg">
 
 ## 🙋 Autores
