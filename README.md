@@ -11,7 +11,7 @@ Este projeto Java implementa um **sistema de gerenciamento para um restaurante**
 ## 💻 Tecnologias Utilizadas
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-plain.svg" height = "40"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" height = "40"/>
 
-## 🏭 Estrutura do Projeto
+## 🏠 Estrutura do Projeto
 * **src:** Contém o código fonte Java do projeto.
     * **DAO:** Classes de acesso a dados (Data Access Object) para interagir com o banco de dados.
     * **DTO:**  Classe de transporte de dados (Data Transfer Object) para uso em outras classes.
@@ -20,20 +20,22 @@ Este projeto Java implementa um **sistema de gerenciamento para um restaurante**
 * **driver:** Driver necessário para uso de JDBC no programa.
 * **build/classes:** Destino de arquivos de build do java.
 
-## 💾 Como executar o programa
+## 🛠️ Como executar o programa 
 
-- Passo 1: Utilize a IDE da sua preferência (por exemplo, a IDE do <a href = "https://www.jetbrains.com/pt-br/idea/"> Intellij, </a> como mostrado no exemplo) 
+- Passo 1: Baixe o ZIP do projeto ***(escolha a versão em "Releases" ou apenas clique em "Code")*** e descompacte a pasta
+<img src = "img/Passo0_1.jpg">
+<img src = "img/Passo0_2.jpg">
 
-- Passo 2: Clique em **"Setup JDK"**
+- Passo 2: Abra o projeto utilizando a <a href = "https://www.jetbrains.com/pt-br/idea/">IDE do Intellij</a> e clique em **"Setup SDK"**
 <img src = "img/Passo1.jpg">
 
 - Passo 3: Clique em **"Download JDK"**
 <img src = "img/Passo2.jpg">
 
-- Passo 4: Instale a versão mais recente
+- Passo 4: Instale a versão mais recente (ou, em caso de problemas, ***instale a versão demonstrada na imagem***)
 <img src = "img/Passo3.jpg">
 
-- Passo 5: Após a instalação, procure a classe principal ***(Exercícios)*** e execute o programa
+- Passo 5: Após a instalação, procure a classe principal ***(Main)*** e execute o programa
 <img src = "img/Passo4.jpg">
 
 ## 🙋 Autores
@@ -42,7 +44,7 @@ Este projeto Java implementa um **sistema de gerenciamento para um restaurante**
 
 <br>
 <br>
-<p align = "center"> <img alt="Badge de Concluído" src="https://img.shields.io/badge/STATUS%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-conclu%C3%ADdo-green?style=for-the-badge"> <br/> <img src = "img/etec1.png" height = "50" alt = "Logo da ETEC"> </p>
+<p align = "center"> <img alt="Badge de Concluído" src="https://img.shields.io/badge/STATUS%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20-concluído-green?style=for-the-badge"> <br/> <img src = "img/etec1.png" height = "50" alt = "Logo da ETEC"> </p>
 
 
 
